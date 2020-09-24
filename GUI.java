@@ -7,12 +7,11 @@ import javafx.scene.*;
 
 public class GUI extends Application
 {
-
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-           Parent root= FXMLLoader.load(getClass().getResource("view/menu.fxml"));
-           Scene menu= new Scene (root,600,600);
+           Parent root= FXMLLoader.load(getClass().getResource("view/Menu.fxml"));
+           Scene menu= new Scene(root,600,600);
            primaryStage.setTitle("That's Life");
            primaryStage.setScene(menu);
            primaryStage.show();
