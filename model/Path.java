@@ -16,4 +16,12 @@ public class Path {
     public ArrayList<Space> getSpaces() {
         return spaces;
     }
+
+    public int getNSpaces() {
+        return spaces.size();
+    }
+
+    public Space getWhichPathSpace() {
+        return spaces.get(getNSpaces() - 1);
+    }
 }
