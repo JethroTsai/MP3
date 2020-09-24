@@ -1,4 +1,6 @@
-  import java.util.*;
+package model;
+
+import java.util.*;
 
 public class BlueCard
 {

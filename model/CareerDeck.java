@@ -1,3 +1,5 @@
+package model;
+
 import java.util.*;
 
 public class CareerDeck extends Deck
@@ -92,7 +94,7 @@ public class CareerDeck extends Deck
             {
                 System.out.println("1: " + careers.get(0).getName() + " raises: " + careers.get(0).getRaises());
                 System.out.println("2: " + careers.get(1).getName() + " raises: " + careers.get(1).getRaises());
-                System.out.print(p.getName() + " Choose the number of the Career you want: ");
+                System.out.print(p.getName() + " Choose the number of the model.Career you want: ");
                 i = kb.nextInt() - 1;
                 
             }
@@ -111,8 +113,8 @@ public class CareerDeck extends Deck
         if (p.getCareer() != null)//player already have career
         {
             i = chooseCareer(p);
-            System.out.println("new Career: " + careers.get(i).getName() + " raises: " + careers.get(i).getRaises());          
-            System.out.println("Do you want to change Career?, 1-YES 2-NO");
+            System.out.println("new model.Career: " + careers.get(i).getName() + " raises: " + careers.get(i).getRaises());
+            System.out.println("Do you want to change model.Career?, 1-YES 2-NO");
             ans = kb.nextInt();
             if (ans == 1)
             {

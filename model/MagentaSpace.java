@@ -1,3 +1,5 @@
+package model;
+
 public class MagentaSpace extends Space
 {
     private String name;

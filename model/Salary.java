@@ -1,4 +1,6 @@
-public class Salary 
+package model;
+
+public class Salary
 {
     private int amount;
     private int tax;

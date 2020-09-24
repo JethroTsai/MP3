@@ -1,5 +1,6 @@
-import java.util.*;
-public class DriverClass 
+import model.*;
+
+public class DriverClass
 {
     public static void main(String [] args)
     {
@@ -45,15 +46,15 @@ public class DriverClass
         {
             System.out.print("Input name for player 1(Doctor):");
             name=kb.nextLine();
-            p1 = new Player(name,"Doctor");
+            p1 = new model.Player(name,"Doctor");
             
             System.out.print("Input name for player 2(Lawyer):");
             name=kb.nextLine();
-            p2 = new Player(name,"Lawyer");
+            p2 = new model.Player(name,"Lawyer");
             
             System.out.print("Input name for player 3(Accountant):");
             name=kb.nextLine();
-            p3 = new Player(name,"Accountant");
+            p3 = new model.Player(name,"Accountant");
 
             while (!actions.hasFinishDeck())
             {
@@ -92,11 +93,11 @@ public class DriverClass
 
 
         
-        /*Player p1 = new Player("one" , "driver");
-        Player p2 = new Player("two", "doctor");
-        Player p3 = new Player("three", "lawyer");
+        /*model.Player p1 = new model.Player("one" , "driver");
+        model.Player p2 = new model.Player("two", "doctor");
+        model.Player p3 = new model.Player("three", "lawyer");
 
-        ActionCard a = new ActionCard();
+        model.ActionCard a = new model.ActionCard();
         System.out.println(p1.getBalance());
         System.out.println(p2.getBalance());
 

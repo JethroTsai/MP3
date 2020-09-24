@@ -1,3 +1,5 @@
+package model;
+
 public class Action
 {
     private String name;

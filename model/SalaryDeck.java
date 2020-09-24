@@ -1,3 +1,5 @@
+package model;
+
 import java.util.*;
 
 public class SalaryDeck extends Deck
@@ -54,6 +56,6 @@ public class SalaryDeck extends Deck
 
     public void showCard()
     {
-        System.out.println("Salary: " + salaries.get(0).getAmount() + " Tax: " + salaries.get(0).getTax());
+        System.out.println("model.Salary: " + salaries.get(0).getAmount() + " Tax: " + salaries.get(0).getTax());
     }
 }

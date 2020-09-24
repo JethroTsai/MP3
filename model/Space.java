@@ -1,4 +1,6 @@
-public class Space 
+package model;
+
+public class Space
 {
     protected String color;
     protected int spaceNum;

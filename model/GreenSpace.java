@@ -1,3 +1,5 @@
+package model;
+
 public class GreenSpace extends Space
 {
     private String name;

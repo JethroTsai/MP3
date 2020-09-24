@@ -1,4 +1,6 @@
-public class House 
+package model;
+
+public class House
 {
     private String name;
     private int price;

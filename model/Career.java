@@ -1,4 +1,6 @@
-public class Career 
+package model;
+
+public class Career
 {
     private String name;
     private boolean degree;
