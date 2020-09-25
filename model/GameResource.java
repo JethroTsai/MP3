@@ -120,7 +120,7 @@ public class GameResource
         for (int i = 1; i < 30; i++)
         {
             Random rand = new Random();
-            color = COLORS[rand.nextInt(2)];
+            color = COLORS[rand.nextInt(3)];
             if (color.equals("Green"))
             {
                 name = GREEN_NAME[rand.nextInt(1)];
@@ -146,15 +146,15 @@ public class GameResource
         for (int i = 1; i < 15; i++)
         {
             Random rand = new Random();
-            color = COLORS[rand.nextInt(3)];
+            color = COLORS[rand.nextInt(4)];
             if (color.equals("Green"))
             {
-                name = GREEN_NAME[rand.nextInt(1)];
+                name = GREEN_NAME[rand.nextInt(2)];
                 path.addSpace(new GreenSpace(name));
             }
             else if (color.equals("Magenta"))
             {
-                name = MAGENTA_NAME[rand.nextInt(1)];
+                name = MAGENTA_NAME[rand.nextInt(2)];
                 path.addSpace(new MagentaSpace(name));
             }
             else
@@ -177,7 +177,7 @@ public class GameResource
         for (int i = 1; i < 15; i++)
         {
             Random rand = new Random();
-            num = rand.nextInt(4);
+            num = rand.nextInt(5);
             if (num >= 2)
             {
                 name = GREEN_NAME[rand.nextInt(1)];
@@ -202,10 +202,10 @@ public class GameResource
         for (int i = 1; i < 30; i++)
         {
             Random rand = new Random();
-            color = COLORS[rand.nextInt(2)];
+            color = COLORS[rand.nextInt(3)];
             if (color.equals("Green"))
             {
-                name = GREEN_NAME[rand.nextInt(1)];
+                name = GREEN_NAME[rand.nextInt(2)];
                 path.addSpace(new GreenSpace(name));
             }
             else
