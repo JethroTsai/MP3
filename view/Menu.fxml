@@ -6,12 +6,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
-      <ChoiceBox fx:id="choice" layoutX="225.0" layoutY="292.0" prefWidth="150.0" />
-      <Button layoutX="280.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickStart" text="Start" />
-      <ImageView fitHeight="181.0" fitWidth="258.0" layoutX="172.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+      <ChoiceBox fx:id="choice" layoutX="224.0" layoutY="317.0" prefWidth="150.0" />
+      <Button layoutX="279.0" layoutY="360.0" mnemonicParsing="false" onAction="#onClickStart" text="Start" />
+      <ImageView fitHeight="251.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pics/download.jpg" />
+            <Image url="@../Pics/thats life.jpg" />
          </image>
       </ImageView>
+      <Label layoutX="238.0" layoutY="283.0" prefHeight="26.0" prefWidth="136.0" text="Number Of Player" />
    </children>
 </AnchorPane>

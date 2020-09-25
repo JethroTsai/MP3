@@ -11,7 +11,7 @@ public class GUI extends Application
     public void start(Stage primaryStage) throws Exception
     {
            Parent root= FXMLLoader.load(getClass().getResource("view/Menu.fxml"));
-           Scene menu= new Scene(root,600,600);
+           Scene menu= new Scene(root,600,450);
            primaryStage.setTitle("That's Life");
            primaryStage.setScene(menu);
            primaryStage.show();
