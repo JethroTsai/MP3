@@ -4,9 +4,9 @@ public class MagentaSpace extends Space
 {
     private String name;
 
-    public MagentaSpace(String name, int spaceNum)
+    public MagentaSpace(String name)
     {
-        super("Magenta", spaceNum);
+        super("Magenta");
         this.name = name;
     }
 

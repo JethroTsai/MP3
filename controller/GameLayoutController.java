@@ -54,7 +54,7 @@ public class GameLayoutController implements Initializable {
 //        board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
 //        GraphicsContext gc = board.getGraphicsContext2D();
 //
-//        Path startingCareerPath = gameResource.getCareerPath();
+//        Path startingCareerPath = gameResource.generateCareerPath();
 //        drawPath(startingCareerPath, x, y, gc);
 //
 //        x += (startingCareerPath.getNSpaces() - 1) * 50;
@@ -65,7 +65,7 @@ public class GameLayoutController implements Initializable {
 //
 //        y -= 100;
 //
-//        Path startingCollegePath = gameResource.getCollegePath();
+//        Path startingCollegePath = gameResource.generateCollegePath();
 //        drawPath(startingCollegePath, x, y, gc);
 //
 //        x += (startingCollegePath.getNSpaces() - 1) * 50;

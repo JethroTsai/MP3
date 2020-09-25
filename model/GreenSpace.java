@@ -4,9 +4,9 @@ public class GreenSpace extends Space
 {
     private String name;
 
-    public GreenSpace(String name, int spaceNum)
+    public GreenSpace(String name)
     {
-        super("Green", spaceNum);
+        super("Green");
         this.name = name;
     }
 
