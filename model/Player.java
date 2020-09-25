@@ -14,11 +14,13 @@ public class Player
     private House house;
     private static int count;
     private int space;
+    private Path path;
+    private boolean turn;
     
     /** Creates a new player
      *
      *  @param name is the user's name
-     *  @param career is the career assigned to the user
+     *
      */
     public Player(String name)
     {
@@ -171,6 +173,11 @@ public class Player
     {
         return space;
     }
+
+    public Path getPath()
+    {
+        return path;
+    }
    
     public void setCareer(Career c)
     {
@@ -182,7 +189,30 @@ public class Player
         this.salary = s;
     }
 
-    
+    public void addSpace()
+    {
+        this.space += 1;
+    }
+
+    public void resetSpace()
+    {
+        this.space = 0;
+    }
+
+    public void yourTurn()
+    {
+        this.turn = true;
+    }
+
+    public void notYourTurn()
+    {
+        this.turn = false;
+    }
+
+    public boolean getTurn()
+    {
+        return turn;
+    }
 
     public boolean hasDegree()
     {

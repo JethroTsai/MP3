@@ -40,6 +40,7 @@ public class MenuController implements Initializable {
             FXMLLoader gameLayoutLoader = new FXMLLoader(getClass().getResource("/view/GameLayout.fxml"));
 //            GameLayoutController gameLayoutController = gameLayoutLoader.getController();
             stage.setScene(new Scene(gameLayoutLoader.load()));
+            stage.setMaximized(true);
             ((GameLayoutController) gameLayoutLoader.getController()).setGameResource(gameResource);
         } catch (Exception e) {
             e.printStackTrace();

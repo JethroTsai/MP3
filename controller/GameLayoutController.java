@@ -18,18 +18,19 @@ import java.util.ResourceBundle;
 
 public class GameLayoutController {
     @FXML
-    private Label careerLabel, salaryLabel, pathLabel, moneyLabel, loanLabel;
+    private Label careerLabel, salaryLabel, pathLabel, moneyLabel, loanLabel, playerLabel;
 
     @FXML
     private Canvas board;
 
     public void setGameResource(GameResource gameResource) {
         drawBoard(gameResource);
-//        careerLabel.setText(gameResource.getCurrentPlayer().getCareer());
-//        salaryLabel.setText("Salary Here");
-//        pathLabel.setText("Path Here");
-//        moneyLabel.setText("Money Here");
-//        loanLabel.setText("Loan Here");
+        if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
+        if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
+        if (gameResource.getCurrentPlayer().getPath() != null)pathLabel.setText("Current Path: " + gameResource.getCurrentPlayer().getPath().getName());
+        moneyLabel.setText("Balance: " + gameResource.getCurrentPlayer().getBalance());
+        loanLabel.setText("Loans: " + gameResource.getCurrentPlayer().getLoans());
+        playerLabel.setText("Player: " + gameResource.getCurrentPlayer().getName());
     }
 
     public void drawBoard(GameResource gameResource)

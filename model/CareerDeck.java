@@ -70,9 +70,9 @@ public class CareerDeck extends Deck
     {
         int i = 0;
         
-        if (p.hasDegree() == false)//career path
+        if (!p.hasDegree())//career path
         {
-            while(careers.get(i).reqDegree()==true)
+            while(careers.get(i).reqDegree())
                    i++; 
         }
 
@@ -83,9 +83,9 @@ public class CareerDeck extends Deck
     {
         int i = 0;
         
-        if (p.hasDegree() == false)//job search
+        if (!p.hasDegree())//job search
         {
-            while(careers.get(i).reqDegree()==true)
+            while(careers.get(i).reqDegree())
                 i++;
         }
         else

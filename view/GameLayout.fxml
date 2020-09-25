@@ -14,11 +14,12 @@
       </ScrollPane>
       <AnchorPane>
          <children>
-            <Label fx:id="careerLabel" text="Career" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-            <Label fx:id="salaryLabel" text="Salary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" />
-            <Label fx:id="pathLabel" text="Path" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" />
-            <Label fx:id="moneyLabel" text="Money" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" />
-            <Label fx:id="loanLabel" text="Loan" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" />
+            <Label fx:id="careerLabel" text="Career: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="salaryLabel" text="Salary: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" />
+            <Label fx:id="pathLabel" text="Path: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="500.0" />
+            <Label fx:id="moneyLabel" text="Money: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="750.0" />
+            <Label fx:id="loanLabel" text="Loan: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1000.0" />
+            <Label fx:id="playerLabel" text="Player: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1250.0" />
          </children>
          <StackPane.margin>
             <Insets bottom="15.0" />

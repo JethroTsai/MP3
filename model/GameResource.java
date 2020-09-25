@@ -12,10 +12,13 @@ public class GameResource
     private Path startingCollegePath;
     private Path startingCareerPath;
     private int numberOfPlayers;
+    private Player[] players;
 
     public GameResource(int numberOfPlayers)
     {
         this.numberOfPlayers = numberOfPlayers;
+        players = new Player[numberOfPlayers];
+        players = generatePlayers();
         generateActionCard();
         generateBlueDeck();
         generateCareerDeck();
@@ -224,10 +227,24 @@ public class GameResource
         Player[] players = new Player[numberOfPlayers];
         while (i <= numberOfPlayers)
         {
-            players[i - 1] = new Player("P" + i);
+            if (i == 1) {
+                players[i - 1] = new Player("P" + i);
+                players[i - 1].yourTurn();
+            }
+            else
+                players[i - 1] = new Player("P" + i);
+            i++;
         }
 
         return players;
+    }
+
+    public Player getCurrentPlayer()
+    {
+        int i = 0;
+        while(!players[i].getTurn() && i < players.length - 1)
+            i++;
+        return players[i];
     }
 
     public Path getStartingCareerPath() {
