@@ -13,7 +13,7 @@ public class GameResource
     private Path startingCareerPath;
     private int numberOfPlayers;
 
-    public GameResource(int numberOfPlayers, GameLayoutController gameLayoutController)
+    public GameResource(int numberOfPlayers)
     {
         this.numberOfPlayers = numberOfPlayers;
         generateActionCard();
@@ -21,7 +21,6 @@ public class GameResource
         generateCareerDeck();
         generateSalaryDeck();
         generateBoard();
-        gameLayoutController.setGameResource(this);
     }
 
     public Deck generateActionCard()
@@ -179,7 +178,6 @@ public class GameResource
         {
             Random rand = new Random();
             num = rand.nextInt(4);
-            System.out.println(num);
             if (num >= 2)
             {
                 name = GREEN_NAME[rand.nextInt(1)];

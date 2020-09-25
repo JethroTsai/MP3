@@ -25,11 +25,11 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         drawBoard(gameResource);
-        careerLabel.setText(gameResource.getCurrentPlayer().getCareer());
-        salaryLabel.setText("Salary Here");
-        pathLabel.setText("Path Here");
-        moneyLabel.setText("Money Here");
-        loanLabel.setText("Loan Here");
+//        careerLabel.setText(gameResource.getCurrentPlayer().getCareer());
+//        salaryLabel.setText("Salary Here");
+//        pathLabel.setText("Path Here");
+//        moneyLabel.setText("Money Here");
+//        loanLabel.setText("Loan Here");
     }
 
     public void drawBoard(GameResource gameResource)
@@ -95,7 +95,6 @@ public class GameLayoutController {
     }
 
     private void drawPath(Path path, int x, int y, GraphicsContext gc) {
-        System.out.println(path.getNSpaces());
         for(Space space : path.getSpaces()) {
             drawSpace(space, x, y, gc);
             x += 50;
