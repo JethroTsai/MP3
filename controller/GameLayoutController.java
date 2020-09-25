@@ -63,7 +63,7 @@ public class GameLayoutController implements Initializable {
        x += (startingCareerPath.getNSpaces() - 1) * 50;
      y += 50;
 
-       Path nextCareerPath = startingCareerPath.getWhichPathSpace().getPath1();
+       Path nextCareerPath = startingCareerPath.getPath1();
        drawPath(nextCareerPath, x, y, gc);
 
        y -= 100;

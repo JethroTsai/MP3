@@ -58,9 +58,9 @@ public class GameResource
         Path retirement = generateRetirement();
     }*/
 
-    public Path generateCollegePath()
+    public Path generateCollegePath(Path nextPath)
     {
-        Path path = new Path();
+        Path path = new Path(nextPath);
         String color = new String();
         for (int i = 1; i < 10; i++)
         {
@@ -74,9 +74,9 @@ public class GameResource
         return path;
     }
 
-    public Path generateCareerPath()
+    public Path generateCareerPath(Path nextPath)
     {
-        Path path = new Path();
+        Path path = new Path(nextPath);
         String color = new String();
         String name = new String();
 
@@ -101,9 +101,9 @@ public class GameResource
     }
 
 
-    public Path generateNormalPath()
+    public Path generateNormalPath(Path path1, Path path2)
     {
-        Path path = new Path();
+        Path path = new Path(path1,path2);
         String color = new String();
         String name = new String();
 
@@ -126,9 +126,9 @@ public class GameResource
         return path;
     }
 
-    public Path generateFamilyPath()
+    public Path generateFamilyPath(Path nextPath)
     {
-        Path path = new Path();
+        Path path = new Path(nextPath);
         String color = new String();
         String name = new String();
 
@@ -156,9 +156,9 @@ public class GameResource
         return path;
     }
 
-    public Path generateChangeCareerPath()
+    public Path generateChangeCareerPath(Path nextPath)
     {
-        Path path = new Path();
+        Path path = new Path(nextPath);
         String color = new String();
         String name = new String();
         int num;

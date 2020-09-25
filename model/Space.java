@@ -2,7 +2,7 @@ package model;
 
 public class Space
 {
-    protected String color;
+    private String color;
 
     public Space(String color)
     {
