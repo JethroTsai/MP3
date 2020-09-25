@@ -25,7 +25,7 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         drawBoard(gameResource);
-        careerLabel.setText("Career Here");
+        careerLabel.setText(gameResource.getCurrentPlayer().getCareer());
         salaryLabel.setText("Salary Here");
         pathLabel.setText("Path Here");
         moneyLabel.setText("Money Here");

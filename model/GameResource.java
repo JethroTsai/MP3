@@ -1,5 +1,7 @@
 package model;
 
+import controller.GameLayoutController;
+
 import java.util.*;
 
 public class GameResource
@@ -11,7 +13,7 @@ public class GameResource
     private Path startingCareerPath;
     private int numberOfPlayers;
 
-    public GameResource(int numberOfPlayers)
+    public GameResource(int numberOfPlayers, GameLayoutController gameLayoutController)
     {
         this.numberOfPlayers = numberOfPlayers;
         generateActionCard();
@@ -19,6 +21,7 @@ public class GameResource
         generateCareerDeck();
         generateSalaryDeck();
         generateBoard();
+        gameLayoutController.setGameResource(this);
     }
 
     public Deck generateActionCard()

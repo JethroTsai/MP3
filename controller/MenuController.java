@@ -31,13 +31,16 @@ public class MenuController implements Initializable {
     @FXML
     public void onClickStart(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        GameResource gameResource = new GameResource((int) choice.getValue());
+
+        FXMLLoader gameLayoutLoader = new FXMLLoader(getClass().getResource("/view/GameLayout.fxml"));
+        GameLayoutController gameLayoutController = gameLayoutLoader.getController();
+
+        GameResource gameResource = new GameResource((int) choice.getValue(), gameLayoutController);
 
         // set scene to the game scene
         try {;
-            FXMLLoader gameLayoutLoader = new FXMLLoader(getClass().getResource("/view/GameLayout.fxml"));
             stage.setScene(new Scene(gameLayoutLoader.load()));
-            ((GameLayoutController) gameLayoutLoader.getController()).setGameResource(gameResource);
+            gameLayoutController.setGameResource(gameResource);
         } catch (Exception e) {
             e.printStackTrace();
         }
