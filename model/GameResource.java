@@ -47,7 +47,17 @@ public class GameResource
         return salaries;
     }
 
-    public void generateBoard() {
+    public void generateBoard()
+    {
+        Path retirement = generateRetirement();
+        Path changeCareer2 = generateChangeCareerPath(retirement);
+        Path family2 = generateFamilyPath(retirement);
+        Path normal2 = generateNormalPath(changeCareer2, family2);
+        Path changeCareer1 = generateChangeCareerPath(normal2);
+        Path family1 = generateFamilyPath(normal2);
+        Path normal1 = generateNormalPath(changeCareer1, family1);
+        startingCollegePath = generateCareerPath(normal1);
+        startingCareerPath = generateCollegePath(normal1);
     }
 
     public Path generateCollegePath(Path nextPath)
@@ -198,6 +208,18 @@ public class GameResource
         path.addSpace(new MagentaSpace("Retirement"));
 
         return path;
+    }
+
+    public Player[] generatePlayers(int nPlayers)
+    {
+        int i = 1;
+        Player[] players = new Player[nPlayers];
+        while (i <= nPlayers)
+        {
+            players[i - 1] = new Player("P" + i);
+        }
+
+        return players;
     }
 
     public Path getStartingCareerPath() {
