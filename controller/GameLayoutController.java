@@ -95,11 +95,11 @@ public class GameLayoutController {
     }
 
     private void drawPath(Path path, int x, int y, GraphicsContext gc) {
+        gc.strokeText(path.getName(), x + (path.getNSpaces() / 2) * 50, y - 10);
         for(Space space : path.getSpaces()) {
             drawSpace(space, x, y, gc);
             x += 50;
         }
-        gc.strokeText(path.getName(), x - path.getNSpaces() / 2, y - 25);
     }
 
     private void drawSpace(Space space, int x, int y, GraphicsContext gc) {
