@@ -1,5 +1,6 @@
 package controller;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -10,6 +11,7 @@ import javafx.scene.paint.Color;
 import model.Path;
 import model.Player;
 import model.Space;
+import model.GameResource;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,7 +33,7 @@ public class GameLayoutController implements Initializable {
         loanLabel.setText("Loan Here");
     }
 
-    public void drawBoard() {
+/*    public void drawBoard() {
         board.setHeight(200);
         board.setWidth(100 * 50);
         board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
@@ -40,37 +42,37 @@ public class GameLayoutController implements Initializable {
             gc.strokeRect(i * 50, 50, 50, 50);
             gc.strokeText(Integer.toString(i), i * 50, 75);
         }
-    }
+    }*/
 
-//    public void drawBoard(GameResource gameResource) {
-//        // minus Y = upward
-//        // plus  Y = downwards
-//        // minus X = left
-//        // plus  X = right
-//
-//        int x = 0, y = 100;
-//        board.setHeight(200);
-//        board.setWidth(1000 * 50);
-//        board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
-//        GraphicsContext gc = board.getGraphicsContext2D();
-//
-//        Path startingCareerPath = gameResource.generateCareerPath();
-//        drawPath(startingCareerPath, x, y, gc);
-//
-//        x += (startingCareerPath.getNSpaces() - 1) * 50;
-//        y += 50;
-//
-//        Path nextCareerPath = startingCareerPath.getWhichPathSpace().getPath1();
-//        drawPath(nextCareerPath, x, y, gc);
-//
-//        y -= 100;
-//
-//        Path startingCollegePath = gameResource.generateCollegePath();
-//        drawPath(startingCollegePath, x, y, gc);
-//
-//        x += (startingCollegePath.getNSpaces() - 1) * 50;
-//        y += 50;
-//    }
+      public void drawBoard(GameResource gameResource)
+      {
+       // minus Y = upward
+       // plus  Y = downwards
+       // minus X = left
+       // plus  X = right
+
+       int x = 0, y = 100;
+       board.setWidth(1000 * 50);
+       board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
+       board.setHeight(200);
+      GraphicsContext gc = board.getGraphicsContext2D();
+
+     Path startingCareerPath = gameResource.generateCareerPath();
+      drawPath(startingCareerPath, x, y, gc);
+
+       x += (startingCareerPath.getNSpaces() - 1) * 50;
+     y += 50;
+
+       Path nextCareerPath = startingCareerPath.getWhichPathSpace().getPath1();
+       drawPath(nextCareerPath, x, y, gc);
+
+       y -= 100;
+
+       Path startingCollegePath = gameResource.generateCollegePath();
+       drawPath(startingCollegePath, x, y, gc);
+       x += (startingCollegePath.getNSpaces() - 1) * 50;
+       y += 50;
+  }
 
     private void drawPath(Path path, int x, int y, GraphicsContext gc) {
         for(Space space : path.getSpaces()) {

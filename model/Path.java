@@ -6,8 +6,9 @@ public class Path {
     private ArrayList<Space> spaces;
     private Path path1, path2;
 
-    public Path() {
+    public Path(Path normal) {
         spaces = new ArrayList<Space>();
+        this.path1= normal;
     }
     public Path(Path path1, Path path2)
     {
@@ -26,6 +27,14 @@ public class Path {
 
     public int getNSpaces() {
         return spaces.size();
+    }
+
+    public Path getPath1() {
+        return path1;
+    }
+
+    public Path getPath2() {
+        return path2;
     }
 
     public Space getWhichPathSpace() {
