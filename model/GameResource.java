@@ -7,6 +7,8 @@ public class GameResource
     private static final String[] COLORS = {"Orange", "Blue", "Green", "Magenta"};
     private static final String[] GREEN_NAME = {"Pay Day", "Pay Raise"};
     private static final String[] MAGENTA_NAME = {"Have Baby or Twins", "Buy a House"};
+    private Path startingCollegePath;
+    private Path startingCareerPath;
 
     public GameResource()
     {
@@ -44,19 +46,9 @@ public class GameResource
         salaries.generate();
         return salaries;
     }
-/*
-    public Path[] generateBoard()
-    {
-        Path college = generateCollegePath();
-        Path career = generateCareerPath();
-        Path normal1 = generateNormalPath();
-        Path family1 = generateFamilyPath();
-        Path changeCareer1 = generateChangeCareerPath();
-        Path normal2 = generateNormalPath();
-        Path family2 = generateFamilyPath();
-        Path changeCareer2 = generateChangeCareerPath();
-        Path retirement = generateRetirement();
-    }*/
+
+    public void generateBoard() {
+    }
 
     public Path generateCollegePath(Path nextPath)
     {
@@ -208,4 +200,11 @@ public class GameResource
         return path;
     }
 
+    public Path getStartingCareerPath() {
+        return startingCareerPath;
+    }
+
+    public Path getStartingCollegePath() {
+        return startingCollegePath;
+    }
 }

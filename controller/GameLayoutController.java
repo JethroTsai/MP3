@@ -23,6 +23,8 @@ public class GameLayoutController implements Initializable {
     @FXML
     private Canvas board;
 
+    private GameResource gameResource;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         drawBoard();
@@ -33,46 +35,39 @@ public class GameLayoutController implements Initializable {
         loanLabel.setText("Loan Here");
     }
 
-/*    public void drawBoard() {
-        board.setHeight(200);
-        board.setWidth(100 * 50);
-        board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
-        GraphicsContext gc = board.getGraphicsContext2D();
-        for(int i = 0; i < 100; i++) {
-            gc.strokeRect(i * 50, 50, 50, 50);
-            gc.strokeText(Integer.toString(i), i * 50, 75);
-        }
-    }*/
+    public void setGameResource(GameResource gameResource) {
+        this.gameResource = gameResource;
+    }
 
-      public void drawBoard(GameResource gameResource)
-      {
+    public void drawBoard()
+    {
        // minus Y = upward
        // plus  Y = downwards
        // minus X = left
        // plus  X = right
 
        int x = 0, y = 100;
-       board.setWidth(1000 * 50);
+       board.setWidth(50);
        board.getGraphicsContext2D().clearRect(0, 0, board.getWidth(), board.getHeight());
        board.setHeight(200);
-      GraphicsContext gc = board.getGraphicsContext2D();
+       GraphicsContext gc = board.getGraphicsContext2D();
 
-     Path startingCareerPath = gameResource.generateCareerPath();
+      Path startingCareerPath = gameResource.getStartingCareerPath();
       drawPath(startingCareerPath, x, y, gc);
 
        x += (startingCareerPath.getNSpaces() - 1) * 50;
-     y += 50;
+       y += 50;
 
        Path nextCareerPath = startingCareerPath.getPath1();
        drawPath(nextCareerPath, x, y, gc);
 
        y -= 100;
 
-       Path startingCollegePath = gameResource.generateCollegePath();
+       Path startingCollegePath = gameResource.getStartingCollegePath();
        drawPath(startingCollegePath, x, y, gc);
        x += (startingCollegePath.getNSpaces() - 1) * 50;
        y += 50;
-  }
+    }
 
     private void drawPath(Path path, int x, int y, GraphicsContext gc) {
         for(Space space : path.getSpaces()) {
