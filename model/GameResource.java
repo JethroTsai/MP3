@@ -9,10 +9,16 @@ public class GameResource
     private static final String[] MAGENTA_NAME = {"Have Baby or Twins", "Buy a House"};
     private Path startingCollegePath;
     private Path startingCareerPath;
+    private int numberOfPlayers;
 
-    public GameResource()
+    public GameResource(int numberOfPlayers)
     {
-
+        this.numberOfPlayers = numberOfPlayers;
+        generateActionCard();
+        generateBlueDeck();
+        generateCareerDeck();
+        generateSalaryDeck();
+        generateBoard();
     }
 
     public Deck generateActionCard()
@@ -62,7 +68,7 @@ public class GameResource
 
     public Path generateCollegePath(Path nextPath)
     {
-        Path path = new Path(nextPath);
+        Path path = new Path("College Path", nextPath);
         String color = new String();
         for (int i = 1; i < 10; i++)
         {
@@ -78,7 +84,7 @@ public class GameResource
 
     public Path generateCareerPath(Path nextPath)
     {
-        Path path = new Path(nextPath);
+        Path path = new Path("Career Path", nextPath);
         String color = new String();
         String name = new String();
 
@@ -105,7 +111,7 @@ public class GameResource
 
     public Path generateNormalPath(Path path1, Path path2)
     {
-        Path path = new Path(path1,path2);
+        Path path = new Path("Normal Path", path1,path2);
         String color = new String();
         String name = new String();
 
@@ -130,7 +136,7 @@ public class GameResource
 
     public Path generateFamilyPath(Path nextPath)
     {
-        Path path = new Path(nextPath);
+        Path path = new Path("Family Path", nextPath);
         String color = new String();
         String name = new String();
 
@@ -160,24 +166,25 @@ public class GameResource
 
     public Path generateChangeCareerPath(Path nextPath)
     {
-        Path path = new Path(nextPath);
+        Path path = new Path("Change Career Path", nextPath);
         String color = new String();
         String name = new String();
         int num;
 
         path.addSpace(new MagentaSpace("Job Search"));
-        for (int i = 1; i < 30; i++)
+        for (int i = 1; i < 15; i++)
         {
             Random rand = new Random();
             num = rand.nextInt(4);
+            System.out.println(num);
             if (num >= 2)
             {
-                color = COLORS[2];
                 name = GREEN_NAME[rand.nextInt(1)];
                 path.addSpace(new GreenSpace(name));
             }
             else
             {
+                color = COLORS[0];
                 path.addSpace(new Space(color));
             }
         }
@@ -187,7 +194,7 @@ public class GameResource
 
     public Path generateRetirement()
     {
-        Path path = new Path();
+        Path path = new Path("Retirement Path");
         String color = new String();
         String name = new String();
 
@@ -210,11 +217,11 @@ public class GameResource
         return path;
     }
 
-    public Player[] generatePlayers(int nPlayers)
+    public Player[] generatePlayers()
     {
         int i = 1;
-        Player[] players = new Player[nPlayers];
-        while (i <= nPlayers)
+        Player[] players = new Player[numberOfPlayers];
+        while (i <= numberOfPlayers)
         {
             players[i - 1] = new Player("P" + i);
         }

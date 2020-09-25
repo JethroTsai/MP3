@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
+import model.GameResource;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,11 +31,13 @@ public class MenuController implements Initializable {
     @FXML
     public void onClickStart(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        GameResource gameResource = new GameResource((int) choice.getValue());
 
         // set scene to the game scene
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/GameLayout.fxml"))));
-            System.out.println(choice.getValue());
+        try {;
+            FXMLLoader gameLayoutLoader = new FXMLLoader(getClass().getResource("/view/GameLayout.fxml"));
+            stage.setScene(new Scene(gameLayoutLoader.load()));
+            ((GameLayoutController) gameLayoutLoader.getController()).setGameResource(gameResource);
         } catch (Exception e) {
             e.printStackTrace();
         }
