@@ -12,6 +12,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import model.GameResource;
 
+import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +22,8 @@ public class MenuController implements Initializable {
 
     @FXML
     private ChoiceBox choice;
+    @FXML
+    private ImageView image;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
