@@ -27,6 +27,8 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         choice.setItems(numberOfPlayers);
         choice.setValue(numberOfPlayers.get(0));
     }
