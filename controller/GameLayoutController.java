@@ -28,6 +28,9 @@ public class GameLayoutController {
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
 
+       gameResource.getCurrentPlayer().setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
+       gameResource.getCurrentPlayer().getPath().getSpaces().get(gameResource.getCurrentPlayer().getSpace()).addPlayer(gameResource.getCurrentPlayer());
+
         drawBoard(gameResource);
         if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
         if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
@@ -115,7 +118,7 @@ public class GameLayoutController {
         gc.fillRect(x, y,50, 50);
         gc.strokeRect(x, y, 50, 50);
         for(Player player : space.getPlayers()) {
-            gc.drawImage(new Image("player"), x + x / 2, y + y / 2);
+            gc.drawImage(new Image("/Pics/player.png",25,25,true,false), x , y );
         }
     }
 

@@ -223,6 +223,11 @@ public class Player
     {
        return married;
     }
+
+    public void setPath(Path path1)
+    {
+        path=path1;
+    }
     
     public int retire(int place)
     {

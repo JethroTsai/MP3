@@ -57,6 +57,16 @@ public class WindowCaller {
         stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
 
+        FXMLLoader pathChoiceLoader= new FXMLLoader(getClass().getResource("/view/PathChoice.fxml"));
+        PathChoiceController pathChoiceController= new PathChoiceController(path1,path2);
+        pathChoiceLoader.setController(pathChoiceController);
+
+        try {
+            stage.setScene(new Scene(pathChoiceLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 //        stage.setScene(new Scene());
 
         // 1. make fxml
@@ -69,6 +79,8 @@ public class WindowCaller {
 
         stage.showAndWait();
 
-        return null;
+
+
+        return pathChoiceController.getChosenPath();
     }
 }
