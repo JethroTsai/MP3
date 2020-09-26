@@ -113,7 +113,7 @@ public class CareerDeck extends Deck
         if (p.getCareer() != null)//player already have career
         {
             i = chooseCareer(p);
-            System.out.println("new model.Career: " + careers.get(i).getName() + " raises: " + careers.get(i).getRaises());
+            System.out.println("new Career: " + careers.get(i).getName() + " raises: " + careers.get(i).getRaises());
             System.out.println("Do you want to change model.Career?, 1-YES 2-NO");
             ans = kb.nextInt();
             if (ans == 1)

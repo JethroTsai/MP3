@@ -31,25 +31,13 @@ public class BlueDeck extends Deck
         Collections.shuffle(blueCards);
     }
 
-    public void execute(Player p1, Player p2)
+    public void execute(Player p1)
     {
         BlueCard blue = blueCards.get(count);
         if(blue.checkCareer(blue.getJob(), p1.getCareer()))
         {
-             System.out.println(p1.getName() + " gets 15k ");
-             p1.receive(15000);
-        }
-        else if(blue.checkCareer(blue.getJob(), p2.getCareer()))
-        {
-            System.out.println(p1.getName() + " pays " + p2.getName());
-
-            if (blue.getName().equals("lawsuit")) p1.payPlayer(blue.lawsuit(), p2);
-            else if (blue.getName().equals("taxdue")) p1.payPlayer(blue.taxDue(p1), p2);
-            else if (blue.getName().equals("tipServer")) p1.payPlayer(blue.tipServer(), p2);
-            else if (blue.getName().equals("skiAcc")) p1.payPlayer(blue.skiAcc(), p2);
-            else if (blue.getName().equals("compRepair")) p1.payPlayer(blue.compRepair(), p2);
-            else if (blue.getName().equals("worldCup")) p1.payPlayer(blue.worldCup(), p2);
-            else if (blue.getName().equals("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
+            System.out.println(p1.getName() + " gets 15k ");
+            p1.receive(15000);
         }
         else
         {
@@ -63,11 +51,22 @@ public class BlueDeck extends Deck
             else if (blue.getName().equals("worldCup")) p1.pay(blue.worldCup());
             else if (blue.getName().equals("f1Race")) p1.pay(blue.f1Race(p1));
         }
-
     }
 
-    
-    
+    public void execute(Player p1, Player p2)
+    {
+        BlueCard blue = blueCards.get(count);
+
+        System.out.println(p1.getName() + " pays " + p2.getName());
+
+        if (blue.getName().equals("lawsuit")) p1.payPlayer(blue.lawsuit(), p2);
+        else if (blue.getName().equals("taxdue")) p1.payPlayer(blue.taxDue(p1), p2);
+        else if (blue.getName().equals("tipServer")) p1.payPlayer(blue.tipServer(), p2);
+        else if (blue.getName().equals("skiAcc")) p1.payPlayer(blue.skiAcc(), p2);
+        else if (blue.getName().equals("compRepair")) p1.payPlayer(blue.compRepair(), p2);
+        else if (blue.getName().equals("worldCup")) p1.payPlayer(blue.worldCup(), p2);
+        else if (blue.getName().equals("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
+    }
 
     public boolean hasFinishDeck()
     {

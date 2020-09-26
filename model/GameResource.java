@@ -13,49 +13,63 @@ public class GameResource
     private Path startingCareerPath;
     private int numberOfPlayers;
     private Player[] players;
+    private ActionCard actions;
+    private BlueDeck blues;
+    private CareerDeck careers;
+    private SalaryDeck salaries;
+    private HouseDeck houses;
 
     public GameResource(int numberOfPlayers)
     {
         this.numberOfPlayers = numberOfPlayers;
         players = new Player[numberOfPlayers];
         players = generatePlayers();
-        generateActionCard();
-        generateBlueDeck();
-        generateCareerDeck();
-        generateSalaryDeck();
+        actions = generateActionCard();
+        blues = generateBlueDeck();
+        careers = generateCareerDeck();
+        salaries = generateSalaryDeck();
+        houses = generateHouseDeck();
         generateBoard();
     }
 
-    public Deck generateActionCard()
+    public ActionCard generateActionCard()
     {
-        Deck actions = new ActionCard();
+        ActionCard actions = new ActionCard();
 
         actions.generate();
         return actions;
     }
 
-    public Deck generateBlueDeck()
+    public BlueDeck generateBlueDeck()
     {
-        Deck blueDeck = new BlueDeck();
+        BlueDeck blueDeck = new BlueDeck();
 
         blueDeck.generate();
         return blueDeck;
     }
 
-    public Deck generateCareerDeck()
+    public CareerDeck generateCareerDeck()
     {
-        Deck careerDeck = new CareerDeck();
+        CareerDeck careerDeck = new CareerDeck();
 
         careerDeck.generate();
         return careerDeck;
     }
 
-    public Deck generateSalaryDeck()
+    public SalaryDeck generateSalaryDeck()
     {
-        Deck salaries = new SalaryDeck();
+        SalaryDeck salaries = new SalaryDeck();
 
         salaries.generate();
         return salaries;
+    }
+
+    public HouseDeck generateHouseDeck()
+    {
+        HouseDeck houses = new HouseDeck();
+
+        houses.generate();
+        return houses;
     }
 
     public void generateBoard()
@@ -247,11 +261,43 @@ public class GameResource
         return players[i];
     }
 
+    public ArrayList<Player> getOtherPlayer()
+    {
+        int i = 0;
+        ArrayList<Player> otherPlayers = new ArrayList<>();
+        for (Player p : players)
+        {
+            if (!p.equals(getCurrentPlayer()))
+                otherPlayers.add(p);
+        }
+        return otherPlayers;
+    }
+
     public Path getStartingCareerPath() {
         return startingCareerPath;
     }
 
     public Path getStartingCollegePath() {
         return startingCollegePath;
+    }
+
+    public ActionCard getActions() {
+        return actions;
+    }
+
+    public BlueDeck getBlues() {
+        return blues;
+    }
+
+    public CareerDeck getCareers() {
+        return careers;
+    }
+
+    public SalaryDeck getSalaries() {
+        return salaries;
+    }
+
+    public HouseDeck getHouses() {
+        return houses;
     }
 }

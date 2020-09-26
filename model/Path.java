@@ -50,5 +50,10 @@ public class Path {
         return path2;
     }
 
+    public Space getSpace(int n)
+    {
+        return spaces.get(n);
+    }
+
 
 }

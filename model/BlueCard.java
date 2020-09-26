@@ -46,7 +46,9 @@ public class BlueCard
 
     public int tipServer()
     {
-        return 1000;
+        Random rand = new Random();
+
+        return (rand.nextInt(10) + 1) * 1000;
     }
     
     public int skiAcc()
@@ -56,7 +58,12 @@ public class BlueCard
 
     public int compRepair()
     {
-        return 5000;
+        Random rand = new Random();
+
+        if ((rand.nextInt(10) + 1) % 2 == 0)
+            return 5000;
+        else
+            return 10000;
     }
 
     public int worldCup()

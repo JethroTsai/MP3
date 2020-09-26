@@ -1,6 +1,7 @@
 package controller;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -9,13 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import model.Path;
-import model.Player;
-import model.Space;
-import model.GameResource;
+import model.*;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class GameLayoutController {
     @FXML
@@ -27,7 +25,10 @@ public class GameLayoutController {
     @FXML
     private Button spin , pay;
 
+    private GameResource gameResource;
+
     public void setGameResource(GameResource gameResource) {
+        this.gameResource = gameResource;
         drawBoard(gameResource);
         if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
         if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
@@ -119,9 +120,87 @@ public class GameLayoutController {
         }
     }
 
-    public void turns(GameResource gameResource)
+    @FXML
+    public void onClickSpin(ActionEvent action)
     {
-        
+        Random rand = new Random();
+        Player currPlayer = gameResource.getCurrentPlayer();
+        int i, j = 0;
+        String spaceName;
+
+        i = rand.nextInt(10) + 1;
+
+        while (!currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta") && j < i) {
+            currPlayer.addSpace();
+            j++;
+        }
+
+        if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Orange"))
+        {
+            if (gameResource.getOtherPlayer().size() == 1)
+                gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0));
+            else
+                gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
+        }
+        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Blue"))
+        {
+            if (gameResource.getOtherPlayer().size() == 1)
+                if (gameResource.getOtherPlayer().get(0).getCareer().equals(gameResource.getBlues()))
+                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0));
+                else
+                    gameResource.getBlues().execute(currPlayer);
+            else
+                if (gameResource.getOtherPlayer().get(0).getCareer().equals(gameResource.getBlues()))
+                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0));
+                else if (gameResource.getOtherPlayer().get(1).getCareer().equals(gameResource.getBlues()))
+                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1));
+                else
+                    gameResource.getBlues().execute(currPlayer);
+        }
+        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Green"))
+        {
+            spaceName = ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
+            if (spaceName.equals("Pay Day"))
+            {
+                ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).giveSalary(currPlayer);
+            }
+            else
+            {
+                ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).raiseSalary(currPlayer);
+            }
+        }
+        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta"))
+        {
+            spaceName = ((MagentaSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
+            if (spaceName.equals("Graduation"))
+            {
+                currPlayer.graduate();
+            }
+            else if (spaceName.equals("College Career Choice"))
+            {
+                gameResource.getCareers().assign(currPlayer);
+            }
+            else if (spaceName.equals("Job Search"))
+            {
+                gameResource.getCareers().assign(currPlayer);
+            }
+            else if (spaceName.equals("Buy a House"))
+            {
+
+            }
+            else if (spaceName.equals("Get Married"))
+            {
+                currPlayer.marry();
+            }
+            else if (spaceName.equals("Have Baby or Twins"))
+            {
+
+            }
+            else //junction
+            {
+
+            }
+        }
     }
 
 }
