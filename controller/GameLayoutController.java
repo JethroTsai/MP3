@@ -3,7 +3,6 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -12,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import model.*;
 
-import java.net.URL;
 import java.util.*;
 
 public class GameLayoutController {
@@ -29,6 +27,7 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
+
         drawBoard(gameResource);
         if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
         if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
@@ -178,15 +177,17 @@ public class GameLayoutController {
             }
             else if (spaceName.equals("College Career Choice"))
             {
-                gameResource.getCareers().assign(currPlayer);
+//                gameResource.getCareers().getCareers()[0] -> gameResource.getCareer().getTopCard();
+                new WindowCaller().collegeCareerChoice(currPlayer, gameResource.getCareers().getCareers()[0], gameResource.getCareers().getCareers()[1], gameResource.getSalaries().getSalaries()[0], gameResource.getSalaries().getSalaries()[1]);
+
             }
             else if (spaceName.equals("Job Search"))
             {
-                gameResource.getCareers().assign(currPlayer);
+//                new WindowCaller().askPlayerToKeepCareer(currPlayer, gameResource.getCareers().getCareers()[0]);
             }
             else if (spaceName.equals("Buy a House"))
             {
-
+                new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses());
             }
             else if (spaceName.equals("Get Married"))
             {

@@ -2,21 +2,15 @@ package model;
 
 import java.util.*;
 
-public class BlueCard
+public class BlueCard extends Card
 {
-    private String name;
     private String job;
     
 
     public BlueCard(String name, String job)
     {
-        this.name = name;
+        super(name);
         this.job = job;
-    }
-
-    public String getName()
-    {
-        return name;
     }
 
     public String getJob()

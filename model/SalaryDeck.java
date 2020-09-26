@@ -58,4 +58,8 @@ public class SalaryDeck extends Deck
     {
         System.out.println("model.Salary: " + salaries.get(0).getAmount() + " Tax: " + salaries.get(0).getTax());
     }
+
+    public Salary[] getSalaries() {
+        return salaries.toArray(new Salary[0]);
+    }
 }

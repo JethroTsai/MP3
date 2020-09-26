@@ -1,8 +1,7 @@
 package model;
 
-public class Action
+public class Action extends Card
 {
-    private String name;
     private String type;
     private int amount;
     /**
@@ -14,18 +13,9 @@ public class Action
      */
     public Action(String name, String type, int amount)
     {
-        this.name = name;
+        super(name);
         this.type = type;
         this.amount = amount;
-    }
-   /**
-    * gets the action name
-    * 
-    * @return name of the card
-    */
-    public String getName()
-    {
-        return name;
     }
    /**
     * gets the type of the action 
@@ -108,7 +98,7 @@ public class Action
     @Override
     public String toString() 
     {
-       return name + "- " +  amount;
+       return getName() + "- " +  amount;
     }
 
     

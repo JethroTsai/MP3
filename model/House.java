@@ -1,21 +1,15 @@
 package model;
 
-public class House
+public class House extends Card
 {
-    private String name;
     private int price;
     private int worth;
 
     public House(String name, int price, int worth)
     {
-        this.name = name;
+        super(name);
         this.price = price;
         this.worth = worth;
-    }
-
-    public String getName()
-    {
-        return name;
     }
 
     public int getPrice()
@@ -26,5 +20,11 @@ public class House
     public int getWorth()
     {
         return worth;
+    }
+
+    @Override
+    public String toString() {
+        return "price=" + price +
+                ", worth=" + worth;
     }
 }

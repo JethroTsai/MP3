@@ -1,6 +1,6 @@
 package model;
 
-public class Salary
+public class Salary extends Card
 {
     private int amount;
     private int tax;
@@ -8,6 +8,7 @@ public class Salary
 
     public Salary(int amount, int tax)
     {
+        super(null);
         this.amount = amount;
         this.tax = tax;
     }
@@ -26,5 +27,12 @@ public class Salary
     public int getTax()
     {
         return tax;
+    }
+
+    @Override
+    public String toString() {
+        return "amount=" + amount +
+                ", tax=" + tax +
+                ", raise=" + RAISE;
     }
 }

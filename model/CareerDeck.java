@@ -139,5 +139,9 @@ public class CareerDeck extends Deck
     public void returnCareer(Player p)
     {
         careers.add(p.getCareer());
-    } 
+    }
+
+    public Career[] getCareers() {
+        return careers.toArray(new Career[0]);
+    }
 }

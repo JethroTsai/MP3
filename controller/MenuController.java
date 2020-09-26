@@ -37,7 +37,6 @@ public class MenuController implements Initializable {
     public void onClickStart(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-
         GameResource gameResource = new GameResource((int) choice.getValue());
 
         // set scene to the game scene

@@ -25,8 +25,8 @@ public class HouseDeck
         }
     }
 
-    public ArrayList<House> getHouses()
+    public House[] getHouses()
     {
-        return houses;
+        return houses.toArray(new House[0]);
     }
 }

@@ -1,28 +1,23 @@
 package model;
 
-public class Career
+public class Career extends Card
 {
-    private String name;
     private boolean degree;
     private int raises;
     private int raiseCount;
 
     public Career(String name)
     {
-        this.name = name;
+        super(name);
     }
 
     public Career(String name, boolean degree, int raises)
     {
-        this.name = name;
+        super(name);
         this.degree = degree;
         this.raises = raises;
     }
 
-    public String getName()
-    {
-        return name;
-    }
 
     public int getRaises()
     {
@@ -42,7 +37,15 @@ public class Career
     @Override
     public boolean equals(Object cob)
     {
-        return ((Career)cob).name.equalsIgnoreCase(this.name);
+        return ((Career)cob).getName().equalsIgnoreCase(getName());
 
+    }
+
+    @Override
+    public String toString() {
+        return "name=" + getName() +
+                ", degree=" + degree +
+                ", raises=" + raises +
+                ", raiseCount=" + raiseCount;
     }
 }
