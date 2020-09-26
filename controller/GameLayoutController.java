@@ -114,8 +114,14 @@ public class GameLayoutController {
         else if(space.getColor().equals("Green")) gc.setFill(Color.GREEN);
         gc.fillRect(x, y,50, 50);
         gc.strokeRect(x, y, 50, 50);
-//        for(Player player : space.getPlayers()) {
-//            gc.drawImage(new Image(""), x + x / 2, y + y / 2);
-//        }
+        for(Player player : space.getPlayers()) {
+            gc.drawImage(new Image("player"), x + x / 2, y + y / 2);
+        }
     }
+
+    public void turns(GameResource gameResource)
+    {
+        
+    }
+
 }
