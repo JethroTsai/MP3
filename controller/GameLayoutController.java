@@ -27,9 +27,21 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
+       if(gameResource.getCurrentPlayer().getPath()==null)
+       {
+           gameResource.getCurrentPlayer().setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
+           gameResource.getCurrentPlayer().getPath().getSpaces().get(gameResource.getCurrentPlayer().getSpace()).addPlayer(gameResource.getCurrentPlayer());
+           System.out.println(gameResource.getCurrentPlayer().getPath().getName());
+           if(gameResource.getCurrentPlayer().getPath().getName().equals("College Path"))
+           {
+               gameResource.getCurrentPlayer().loan();
+               gameResource.getCurrentPlayer().loan();
 
-       gameResource.getCurrentPlayer().setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
-       gameResource.getCurrentPlayer().getPath().getSpaces().get(gameResource.getCurrentPlayer().getSpace()).addPlayer(gameResource.getCurrentPlayer());
+           }
+       }
+
+
+
 
         drawBoard(gameResource);
         if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());

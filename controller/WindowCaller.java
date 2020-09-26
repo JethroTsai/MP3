@@ -67,7 +67,9 @@ public class WindowCaller {
             e.printStackTrace();
         }
 
-//        stage.setScene(new Scene());
+        stage.showAndWait();
+
+        //        stage.setScene(new Scene());
 
         // 1. make fxml
         // 2. make controller
@@ -75,9 +77,6 @@ public class WindowCaller {
         // 4. initialize controller hereee
         // 5. set fxml loader's controller to the initialized controller
         // 6. show and wait then return the value
-
-
-        stage.showAndWait();
 
 
 

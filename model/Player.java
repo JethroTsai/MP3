@@ -44,8 +44,7 @@ public class Player
         {
             while (amount > balance)
             {
-                balance += 20000;
-                loans++;
+               loan();
             }
 
             this.balance-=amount;
@@ -149,6 +148,12 @@ public class Player
      *
      *
      */
+
+     public void loan()
+     {
+         this.loans++;
+         receive(20000);
+     }
     public String getName()
     {
         return name;
