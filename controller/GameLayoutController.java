@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -22,6 +23,9 @@ public class GameLayoutController {
 
     @FXML
     private Canvas board;
+
+    @FXML
+    private Button spin , pay;
 
     public void setGameResource(GameResource gameResource) {
         drawBoard(gameResource);

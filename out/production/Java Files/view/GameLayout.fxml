@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameLayoutController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameLayoutController">
    <children>
       <ScrollPane>
         <content>
@@ -20,6 +20,8 @@
             <Label fx:id="moneyLabel" text="Money: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="750.0" />
             <Label fx:id="loanLabel" text="Loan: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1000.0" />
             <Label fx:id="playerLabel" text="Player: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1250.0" />
+            <Button layoutX="623.0" layoutY="81.0" mnemonicParsing="false" text="loan" AnchorPane.bottomAnchor="100.0" />
+            <Button layoutX="425.0" layoutY="81.0" mnemonicParsing="false" text="Spin" AnchorPane.bottomAnchor="100.0" />
          </children>
          <StackPane.margin>
             <Insets bottom="15.0" />
