@@ -82,4 +82,50 @@ public class WindowCaller {
 
         return pathChoiceController.getChosenPath();
     }
+
+    public void careerCard(Career career,Player player)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+
+        FXMLLoader careerCardLoader = new FXMLLoader(getClass().getResource("/view/CareerCard.fxml"));
+        CareerCardController careerCardController= new CareerCardController(career);
+        careerCardLoader.setController(careerCardController);
+
+        try {
+            stage.setScene(new Scene(careerCardLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+
+        player.setCareer(career);
+
+    }
+
+    public void salaryCard(Salary salary,Player player)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+
+        FXMLLoader salaryCardLoader = new FXMLLoader(getClass().getResource("/view/CareerCard.fxml"));
+       SalaryController salaryController= new SalaryController(salary);
+        salaryCardLoader.setController( salaryController);
+
+        try {
+            stage.setScene(new Scene(salaryCardLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+
+        player.setSalary(salary);
+
+    }
 }

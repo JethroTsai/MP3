@@ -38,6 +38,15 @@ public class GameLayoutController {
                gameResource.getCurrentPlayer().loan();
 
            }
+
+           else
+           {
+               new WindowCaller().careerCard(gameResource.getCareers().getCareers()[0],gameResource.getCurrentPlayer());
+               new WindowCaller().salaryCard(gameResource.getSalaries().getSalaries()[0],gameResource.getCurrentPlayer());
+           }
+
+
+
        }
 
 
