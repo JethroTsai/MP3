@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import model.Path;
@@ -15,6 +16,8 @@ public class PathChoiceController implements Initializable
 {
     @FXML
     private ComboBox comboBox;
+    @FXML
+    private Button cont;
 
     private Path path1,path2;
     private Path chosenPath;
@@ -28,8 +31,17 @@ public class PathChoiceController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
+        cont.setDisable(true);
         comboBox.getItems().add(path1.getName());
         comboBox.getItems().add(path2.getName());
+
+        comboBox.setOnAction(e->{
+            if(comboBox.getValue()==null)
+                cont.setDisable(true);
+
+            else
+                cont.setDisable(false);
+        });
 
     }
 
