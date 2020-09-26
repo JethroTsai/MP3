@@ -114,4 +114,10 @@ public class GameLayoutController {
             gc.drawImage(new Image("player"), x + x / 2, y + y / 2);
         }
     }
+
+    public void turns(GameResource gameResource)
+    {
+        
+    }
+
 }
