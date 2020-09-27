@@ -104,7 +104,7 @@ public class ActionCard extends Deck
     {
         if(count < MAX)
         {
-            Action action = actions.get(count);
+            Action action = actions.get(0);
             
             String type = new String(action.getType());
     
@@ -143,7 +143,7 @@ public class ActionCard extends Deck
     {
         if (count < MAX)
         {
-            Action action = actions.get(count);
+            Action action = actions.get(0);
             
             String type = new String(action.getType());
             String name = new String(action.getName());
@@ -221,5 +221,15 @@ public class ActionCard extends Deck
     public boolean hasFinishDeck()
     {
         return count == MAX;
+    }
+
+    public Action getTopCard()
+    {
+        Action act;
+
+        act=actions.remove(0);
+        actions.add(act);
+        return act;
+
     }
 }

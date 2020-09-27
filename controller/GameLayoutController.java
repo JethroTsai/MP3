@@ -225,12 +225,19 @@ public class GameLayoutController {
             if (space.getColor().equals("Orange")) //orange space
             {
                 if (gameResource.getOtherPlayer().size() == 1)
+                {
                     gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0));
+                    new WindowCaller().actionCard(gameResource.getActions().getTopCard());
+
+                }
+
+
                 else
                     gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
             } else if (space.getColor().equals("Blue")) //blue space
             {
                 BlueCard blue = gameResource.getBlues().getTopCard();
+                new WindowCaller().bluecard(blue);
                 if (gameResource.getOtherPlayer().size() == 1) {
                     if (gameResource.getOtherPlayer().get(0).getCareer() != null) {
                         if (gameResource.getOtherPlayer().get(0).getCareer().equals(blue.getJob()))
@@ -293,20 +300,27 @@ public class GameLayoutController {
                 } else if (spaceName.equals("Buy a House")) {
                     new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses());
                 } else if (spaceName.equals("Get Married")) {
+
                     currPlayer.marry();
+                    System.out.println(currPlayer.isMarried());
                 } else if (spaceName.equals("Which Path")) {
                     currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
                 } else if (spaceName.equals("Have Baby or Twins")) {
                     if ((rand.nextInt(10) + 1) % 2 == 0) {
                         currPlayer.addChild();
                         currPlayer.addChild();
-                        while (!gameResource.getOtherPlayer().isEmpty()) {
-                            gameResource.getOtherPlayer().remove(0).payPlayer(10000, currPlayer);
-                        }
+                       for(Player player: gameResource.getOtherPlayer())
+                       {
+                           player.payPlayer(10000,currPlayer);
+                       }
+
+                       System.out.println("Stonks");
                     } else {
                         currPlayer.addChild();
-                        while (!gameResource.getOtherPlayer().isEmpty()) {
-                            gameResource.getOtherPlayer().remove(0).payPlayer(5000, currPlayer);
+                        for(Player player: gameResource.getOtherPlayer())
+                        {
+                            player.payPlayer(5000,currPlayer);
+                            System.out.println("Stonks");
                         }
                     }
                 }

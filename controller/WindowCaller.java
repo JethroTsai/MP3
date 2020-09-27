@@ -177,4 +177,24 @@ public class WindowCaller {
 
 
     }
+
+    public void bluecard(BlueCard blueCard)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader blueCardLoader= new FXMLLoader(getClass().getResource("/view/BlueCard.fxml"));
+        BlueCardController blueCardController= new BlueCardController(blueCard);
+        blueCardLoader.setController(blueCardController);
+
+        try {
+            stage.setScene(new Scene(blueCardLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+
+
+    }
 }

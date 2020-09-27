@@ -42,13 +42,13 @@ public class BlueDeck extends Deck
         {
             System.out.println(p1.getName() + " pays the bank");
 
-            if (blue.getName().equals("lawsuit")) p1.pay(blue.lawsuit());
-            else if (blue.getName().equals("taxdue")) p1.pay(blue.taxDue(p1));
-            else if (blue.getName().equals("tipServer")) p1.pay(blue.tipServer());
-            else if (blue.getName().equals("skiAcc")) p1.pay(blue.skiAcc());
-            else if (blue.getName().equals("compRepair")) p1.pay(blue.compRepair());
-            else if (blue.getName().equals("worldCup")) p1.pay(blue.worldCup());
-            else if (blue.getName().equals("f1Race")) p1.pay(blue.f1Race(p1));
+            if (blue.getName().equalsIgnoreCase("lawsuit")) p1.pay(blue.lawsuit());
+            else if (blue.getName().equalsIgnoreCase("taxdue")) p1.pay(blue.taxDue(p1));
+            else if (blue.getName().equalsIgnoreCase("tipServer")) p1.pay(blue.tipServer());
+            else if (blue.getName().equalsIgnoreCase("skiAcc")) p1.pay(blue.skiAcc());
+            else if (blue.getName().equalsIgnoreCase("compRepair")) p1.pay(blue.compRepair());
+            else if (blue.getName().equalsIgnoreCase("worldCup")) p1.pay(blue.worldCup());
+            else if (blue.getName().equalsIgnoreCase("f1Race")) p1.pay(blue.f1Race(p1));
         }
     }
 
@@ -56,13 +56,13 @@ public class BlueDeck extends Deck
     {
         System.out.println(p1.getName() + " pays " + p2.getName());
 
-        if (blue.getName().equals("lawsuit")) p1.payPlayer(blue.lawsuit(), p2);
-        else if (blue.getName().equals("taxdue")) p1.payPlayer(blue.taxDue(p1), p2);
-        else if (blue.getName().equals("tipServer")) p1.payPlayer(blue.tipServer(), p2);
-        else if (blue.getName().equals("skiAcc")) p1.payPlayer(blue.skiAcc(), p2);
-        else if (blue.getName().equals("compRepair")) p1.payPlayer(blue.compRepair(), p2);
-        else if (blue.getName().equals("worldCup")) p1.payPlayer(blue.worldCup(), p2);
-        else if (blue.getName().equals("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
+        if (blue.getName().equalsIgnoreCase("lawsuit")) p1.payPlayer(blue.lawsuit(), p2);
+        else if (blue.getName().equalsIgnoreCase("taxdue")) p1.payPlayer(blue.taxDue(p1), p2);
+        else if (blue.getName().equalsIgnoreCase("tipServer")) p1.payPlayer(blue.tipServer(), p2);
+        else if (blue.getName().equalsIgnoreCase("skiAcc")) p1.payPlayer(blue.skiAcc(), p2);
+        else if (blue.getName().equalsIgnoreCase("compRepair")) p1.payPlayer(blue.compRepair(), p2);
+        else if (blue.getName().equalsIgnoreCase("worldCup")) p1.payPlayer(blue.worldCup(), p2);
+        else if (blue.getName().equalsIgnoreCase("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
     }
 
     public BlueCard getTopCard()
