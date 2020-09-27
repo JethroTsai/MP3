@@ -2,12 +2,25 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="331.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="134.0" layoutY="40.0" text="Action Card" />
-      <Label layoutX="152.0" layoutY="153.0" text="Name" />
-      <ComboBox layoutX="94.0" layoutY="294.0" prefWidth="150.0" promptText="Choose Player" />
-      <Button layoutX="137.0" layoutY="361.0" mnemonicParsing="false" text="Continue" />
+      <ComboBox layoutX="94.0" layoutY="307.0" prefWidth="150.0" promptText="Choose Player" />
+      <Button layoutX="133.0" layoutY="350.0" mnemonicParsing="false" text="Continue" />
+      <Pane layoutX="24.0" layoutY="14.0" prefHeight="271.0" prefWidth="283.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="23.0" prefHeight="53.0" prefWidth="191.0" text="Action Card" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="43.0" layoutY="126.0" prefHeight="27.0" prefWidth="206.0" text="Name" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
