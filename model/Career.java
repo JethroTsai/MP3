@@ -34,12 +34,12 @@ public class Career extends Card
         return degree;
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object cob)
     {
         return ((Career)cob).getName().equalsIgnoreCase(getName());
 
-    }
+    }*/
 
     @Override
     public String toString() {

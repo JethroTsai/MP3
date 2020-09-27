@@ -27,41 +27,57 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
-        pay.setDisable(true);
+        boolean ended = false;
 
-       if(gameResource.getCurrentPlayer().getPath()==null)
-       {
-           gameResource.getCurrentPlayer().setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
-           gameResource.getCurrentPlayer().resetSpace();
-           gameResource.getCurrentPlayer().getPath().getSpaces().get(gameResource.getCurrentPlayer().getSpace()).addPlayer(gameResource.getCurrentPlayer());
-           System.out.println(gameResource.getCurrentPlayer().getPath().getName());
-           if(gameResource.getCurrentPlayer().getPath().getName().equals("College Path"))
-           {
-               gameResource.getCurrentPlayer().loan();
-               gameResource.getCurrentPlayer().loan();
+        //while(!ended)
+        //{
+            pay.setDisable(true);
 
-           }
-           else//Career Path
-           {
-               new WindowCaller().careerCard(gameResource.getCareers().getTopCard(false),gameResource.getCurrentPlayer());
-               new WindowCaller().salaryCard(gameResource.getSalaries().getTopCard(),gameResource.getCurrentPlayer());
-           }
-       }
-       if(gameResource.getCurrentPlayer().getLoans() != 0)
-       {
-           pay.setDisable(false);
-       }
+            if(gameResource.getCurrentPlayer().getPath()==null)
+            {
+                gameResource.getCurrentPlayer().setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
+                gameResource.getCurrentPlayer().resetSpace();
+                gameResource.getCurrentPlayer().getPath().getSpaces().get(gameResource.getCurrentPlayer().getSpace()).addPlayer(gameResource.getCurrentPlayer());
+                System.out.println(gameResource.getCurrentPlayer().getPath().getName());
+                if(gameResource.getCurrentPlayer().getPath().getName().equals("College Path"))
+                {
+                    gameResource.getCurrentPlayer().loan();
+                    gameResource.getCurrentPlayer().loan();
 
+                }
+                else//Career Path
+                {
+                    new WindowCaller().careerCard(gameResource.getCareers().getTopCard(false),gameResource.getCurrentPlayer());
+                    new WindowCaller().salaryCard(gameResource.getSalaries().getTopCard(),gameResource.getCurrentPlayer());
+                }
+            }
+            if(gameResource.getCurrentPlayer().getLoans() != 0)
+            {
+                pay.setDisable(false);
+            }
 
+            drawBoard(gameResource);
+            if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
+            if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
+            if (gameResource.getCurrentPlayer().getPath() != null)pathLabel.setText("Current Path: " + gameResource.getCurrentPlayer().getPath().getName());
+            moneyLabel.setText("Balance: " + gameResource.getCurrentPlayer().getBalance());
+            loanLabel.setText("Loans: " + gameResource.getCurrentPlayer().getLoans());
+            playerLabel.setText("Player: " + gameResource.getCurrentPlayer().getName());
 
+            if (gameResource.getCurrentPlayer().isRetired())
+            {
+                if (gameResource.getOtherPlayer().size() == 1)
+                    if (gameResource.getOtherPlayer().get(0).isRetired())
+                        ended = true;
+                else
+                {
+                    if (gameResource.getOtherPlayer().get(0).isRetired())
+                        if (gameResource.getOtherPlayer().get(1).isRetired())
+                            ended = true;
+                }
+            }
+        //}
 
-        drawBoard(gameResource);
-        if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
-        if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
-        if (gameResource.getCurrentPlayer().getPath() != null)pathLabel.setText("Current Path: " + gameResource.getCurrentPlayer().getPath().getName());
-        moneyLabel.setText("Balance: " + gameResource.getCurrentPlayer().getBalance());
-        loanLabel.setText("Loans: " + gameResource.getCurrentPlayer().getLoans());
-        playerLabel.setText("Player: " + gameResource.getCurrentPlayer().getName());
     }
 
     public void drawBoard(GameResource gameResource)
@@ -147,113 +163,179 @@ public class GameLayoutController {
     }
 
     @FXML
-    public void onClickSpin(ActionEvent action)
-    {
+    public void onClickSpin(ActionEvent action) {
         Random rand = new Random();
         Player currPlayer = gameResource.getCurrentPlayer();
-        int i, j = 1;
+        int i;
+        int j = 1;
+        int k = 0;
         String spaceName;
+        int place = 1;
+
 
         i = rand.nextInt(10) + 1;
 
         while (!currPlayer.getPath().getSpace(currPlayer.getSpace() + j).getColor().equals("Magenta") && j < i) {
+            System.out.println(i);
+            if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getPlayers().size() == 1) //if space contains only 1 player
+            {
+                currPlayer.getPath().getSpace(currPlayer.getSpace()).getPlayers().remove(0);
+            } else {
+                while (k < currPlayer.getPath().getSpace(currPlayer.getSpace()).getPlayers().size()) //check which player
+                {
+                    if (currPlayer.getName().equals(currPlayer.getPath().getSpace(currPlayer.getSpace()).getPlayers().get(k).getName()))// if current player matches
+                        currPlayer.getPath().getSpace(currPlayer.getSpace()).getPlayers().remove(k);
+                    k++;//next player
+                }
+            }
             j++;
         }
+        for (j = j; j >= 0; j--)
+        {
+            currPlayer.addSpace();
+            if (currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1)
+            {
+                if (((MagentaSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName().equals("Which Path"))
+                {
+                    System.out.println("TITE LIIT");
+                    currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
+                    currPlayer.resetSpace();
+                }
+                else
+                {
+                    System.out.println("HATDOG LAKI");
+                    currPlayer.setPath(currPlayer.getPath().getPath1());
+                    currPlayer.resetSpace();
+                }
+            }
 
-        if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Orange"))
-        {
-            if (gameResource.getOtherPlayer().size() == 1)
-                gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0));
-            else
-                gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
         }
-        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Blue"))
-        {
-            if (gameResource.getOtherPlayer().size() == 1)
-                if (gameResource.getOtherPlayer().get(0).getCareer().equals(gameResource.getBlues()))
-                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0));
+
+            if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Orange")) //orange space
+            {
+                if (gameResource.getOtherPlayer().size() == 1)
+                    gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0));
                 else
-                    gameResource.getBlues().execute(currPlayer);
-            else
-                if (gameResource.getOtherPlayer().get(0).getCareer().equals(gameResource.getBlues()))
-                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0));
-                else if (gameResource.getOtherPlayer().get(1).getCareer().equals(gameResource.getBlues()))
-                    gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1));
-                else
-                    gameResource.getBlues().execute(currPlayer);
-        }
-        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Green"))
-        {
-            spaceName = ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
-            if (spaceName.equals("Pay Day"))
+                    gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
+            } else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Blue")) //blue space
             {
-                ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).giveSalary(currPlayer);
-            }
-            else
+                BlueCard blue = gameResource.getBlues().getTopCard();
+                if (gameResource.getOtherPlayer().size() == 1) {
+                    if (gameResource.getOtherPlayer().get(0).getCareer() != null) {
+                        if (gameResource.getOtherPlayer().get(0).getCareer().equals(blue.getJob()))
+                            gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0), blue);
+                        else
+                            gameResource.getBlues().execute(currPlayer, blue);
+                    }
+                    else
+                        gameResource.getBlues().execute(currPlayer, blue);
+                }
+                else {
+                    if (gameResource.getOtherPlayer().get(0).getCareer() != null)
+                    {
+                        if (gameResource.getOtherPlayer().get(1).getCareer() != null)
+                        {
+                            if (gameResource.getOtherPlayer().get(0).getCareer().equals(blue.getJob()))
+                                gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0), blue);
+                            else if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
+                                gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1), blue);
+                            else
+                                gameResource.getBlues().execute(currPlayer, blue);
+                        }
+                    }
+                    else if (gameResource.getOtherPlayer().get(1).getCareer() != null)
+                    {
+                        if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
+                            gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1), blue);
+                        else
+                            gameResource.getBlues().execute(currPlayer, blue);
+                    }
+                    else
+                    {
+                        gameResource.getBlues().execute(currPlayer, blue);
+                    }
+
+                }
+                gameResource.getBlues().addCard(blue);
+            } else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Green")) //green space
             {
-                ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).raiseSalary(currPlayer);
-            }
-        }
-        else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta"))
-        {
-            spaceName = ((MagentaSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
-            if (spaceName.equals("Graduation"))
-            {
-                currPlayer.graduate();
-            }
-            else if (spaceName.equals("College Career Choice"))
-            {
+                System.out.println("GREENTICO");
+                spaceName = ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
+                if (spaceName.equals("Pay Day")) {
+                    ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).giveSalary(currPlayer);
+                } else {
+                    ((GreenSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).raiseSalary(currPlayer);
+                }
+            } else if (currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta")) //magenta space
+                {
+                spaceName = ((MagentaSpace) currPlayer.getPath().getSpace(currPlayer.getSpace())).getName();
+                if (spaceName.equals("Graduation")) {
+                    currPlayer.graduate();
+                } else if (spaceName.equals("College Career Choice")) {
 
 //                gameResource.getCareers().getCareers()[0] -> gameResource.getCareer().getTopCard();
-                new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
+                    new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
 
-            }
-            else if (spaceName.equals("Job Search"))
-            {
+                } else if (spaceName.equals("Job Search")) {
 //                new WindowCaller().askPlayerToKeepCareer(currPlayer, gameResource.getCareers().getCareers()[0]);
-            }
-            else if (spaceName.equals("Buy a House"))
-            {
-                new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses());
-            }
-            else if (spaceName.equals("Get Married"))
-            {
-                currPlayer.marry();
-            }
-            else if (spaceName.equals("Have Baby or Twins"))
-            {
-                if ((rand.nextInt(10) + 1) % 2 == 0)
-                {
-                    currPlayer.addChild();
-                    currPlayer.addChild();
-                    while (!gameResource.getOtherPlayer().isEmpty())
-                    {
-                        gameResource.getOtherPlayer().remove(0).payPlayer(10000, currPlayer);
+                } else if (spaceName.equals("Buy a House")) {
+                    new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses());
+                } else if (spaceName.equals("Get Married")) {
+                    currPlayer.marry();
+                } else if (spaceName.equals("Have Baby or Twins")) {
+                    if ((rand.nextInt(10) + 1) % 2 == 0) {
+                        currPlayer.addChild();
+                        currPlayer.addChild();
+                        while (!gameResource.getOtherPlayer().isEmpty()) {
+                            gameResource.getOtherPlayer().remove(0).payPlayer(10000, currPlayer);
+                        }
+                    } else {
+                        currPlayer.addChild();
+                        while (!gameResource.getOtherPlayer().isEmpty()) {
+                            gameResource.getOtherPlayer().remove(0).payPlayer(5000, currPlayer);
+                        }
                     }
                 }
-                else
+                else if (spaceName.equals("Retirement"))
                 {
-                    currPlayer.addChild();
-                    while (!gameResource.getOtherPlayer().isEmpty())
+                    if (gameResource.getOtherPlayer().size() == 1) {
+                        if (gameResource.getOtherPlayer().get(0).isRetired())
+                            currPlayer.retire(2);
+                        else
+                            currPlayer.retire(1);
+                    }
+                    else
                     {
-                        gameResource.getOtherPlayer().remove(0).payPlayer(5000, currPlayer);
+                        if (gameResource.getOtherPlayer().get(0).isRetired()) {
+                            if (gameResource.getOtherPlayer().get(1).isRetired())
+                                currPlayer.retire(3);
+                            else
+                                currPlayer.retire(2);
+                        }
+                        else if (gameResource.getOtherPlayer().get(1).isRetired()) {
+                                currPlayer.retire(2);
+                        }
+                        else
+                        {
+                            currPlayer.retire(1);
+                        }
                     }
                 }
+                //else //Which Path
+                //{
+                //    currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
+                //    currPlayer.resetSpace();
+                //}
             }
-            else //Which Path
-            {
-                currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
-                currPlayer.resetSpace();
+            if (!currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta")) {
+                currPlayer.notYourTurn();
+                gameResource.getNextPlayer().yourTurn();
+                gameResource.getOtherPlayer().add(currPlayer);
             }
-        }
-        if (!currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta"))
-        {
-            currPlayer.notYourTurn();
-        }
 
-        currPlayer.getPath().getSpace(currPlayer.getSpace());
-        currPlayer.addSpace(j);
-    }
+
+
+        }
 
 
 

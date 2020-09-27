@@ -21,7 +21,7 @@
             <Label fx:id="loanLabel" text="Loan: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1000.0" />
             <Label fx:id="playerLabel" text="Player: " AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1250.0" />
             <Button fx:id="pay" layoutX="623.0" layoutY="81.0" mnemonicParsing="false" text="Pay loan" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="1035.0" />
-            <Button fx:id="spin" layoutX="1034.0" layoutY="52.4" mnemonicParsing="false" text="Spin" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="835.0" />
+            <Button fx:id="spin" layoutX="1034.0" layoutY="52.4" mnemonicParsing="false" onAction="#onClickSpin" text="Spin" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="835.0" />
          </children>
          <StackPane.margin>
             <Insets bottom="15.0" />

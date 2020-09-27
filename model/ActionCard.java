@@ -160,7 +160,7 @@ public class ActionCard extends Deck
             String type = new String(action.getType());
             String name = new String(action.getName());
             String userName = new String();
-            Scanner key = new Scanner(System.in);
+            //Scanner key = new Scanner(System.in);
 
             if(type.equals(new String("ColB")))
             {
@@ -179,7 +179,7 @@ public class ActionCard extends Deck
                 else
                 {
                     System.out.print(p1.getName() + " choose a player to pay a lawsuit: ");
-                    userName = key.nextLine();
+                    //userName = key.nextLine();
                     if (userName.equalsIgnoreCase(p2.getName()))
                     {
                         action.payPlayerAction(p1, p2);
@@ -204,7 +204,7 @@ public class ActionCard extends Deck
                 else
                 {
                     System.out.print(p1.getName() + " choose a player to file a lawsuit: ");
-                    userName = key.nextLine();
+                    //userName = key.nextLine();
                     if (userName.equalsIgnoreCase(p2.getName()))
                     {
                         action.collectFromPlayer(p1, p2);
