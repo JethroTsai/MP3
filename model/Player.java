@@ -16,6 +16,7 @@ public class Player
     private int space;
     private Path path;
     private boolean turn;
+    private boolean retired = false;
     
     /** Creates a new player
      *
@@ -194,6 +195,11 @@ public class Player
         this.salary = s;
     }
 
+    public void addChild()
+    {
+        this.child++;
+    }
+
     public void addSpace()
     {
         this.space += 1;
@@ -236,6 +242,19 @@ public class Player
     
     public int retire(int place)
     {
+        this.retired = true;
+        switch(place)
+        {
+            case 1 : this.receive(100000); break;
+            case 2 : this.receive(50000); break;
+            case 3 : this.receive(20000); break;
+        }
+
         return place;
+    }
+
+    public boolean isRetired()
+    {
+        return retired;
     }
 }

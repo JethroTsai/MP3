@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -8,11 +9,21 @@
    <children>
       <ChoiceBox fx:id="choice" layoutX="224.0" layoutY="317.0" prefWidth="150.0" />
       <Button layoutX="279.0" layoutY="360.0" mnemonicParsing="false" onAction="#onClickStart" text="Start" />
-      <ImageView fitHeight="251.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pics/thats life.jpg" />
-         </image>
-      </ImageView>
       <Label layoutX="238.0" layoutY="283.0" prefHeight="26.0" prefWidth="136.0" text="Number Of Player" />
+      <BorderPane prefHeight="251.0" prefWidth="599.0">
+         <top>
+            <ImageView fitHeight="251.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../Pics/thats life.jpg" />
+               </image>
+            </ImageView>
+         </top>
+         <opaqueInsets>
+            <Insets top="99.0" />
+         </opaqueInsets>
+      </BorderPane>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

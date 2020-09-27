@@ -273,6 +273,11 @@ public class GameResource
         return otherPlayers;
     }
 
+    public Player getNextPlayer()
+    {
+        return getOtherPlayer().remove(0);
+    }
+
     public Path getStartingCareerPath() {
         return startingCareerPath;
     }

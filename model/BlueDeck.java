@@ -31,9 +31,8 @@ public class BlueDeck extends Deck
         Collections.shuffle(blueCards);
     }
 
-    public void execute(Player p1)
+    public void execute(Player p1, BlueCard blue)
     {
-        BlueCard blue = blueCards.get(count);
         if(blue.checkCareer(blue.getJob(), p1.getCareer()))
         {
             System.out.println(p1.getName() + " gets 15k ");
@@ -53,10 +52,8 @@ public class BlueDeck extends Deck
         }
     }
 
-    public void execute(Player p1, Player p2)
+    public void execute(Player p1, Player p2, BlueCard blue)
     {
-        BlueCard blue = blueCards.get(count);
-
         System.out.println(p1.getName() + " pays " + p2.getName());
 
         if (blue.getName().equals("lawsuit")) p1.payPlayer(blue.lawsuit(), p2);
@@ -66,6 +63,16 @@ public class BlueDeck extends Deck
         else if (blue.getName().equals("compRepair")) p1.payPlayer(blue.compRepair(), p2);
         else if (blue.getName().equals("worldCup")) p1.payPlayer(blue.worldCup(), p2);
         else if (blue.getName().equals("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
+    }
+
+    public BlueCard getTopCard()
+    {
+        return blueCards.remove(0);
+    }
+
+    public void addCard(BlueCard blue)
+    {
+        blueCards.add(blue);
     }
 
     public boolean hasFinishDeck()

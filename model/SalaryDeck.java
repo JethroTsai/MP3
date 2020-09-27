@@ -62,4 +62,14 @@ public class SalaryDeck extends Deck
     public Salary[] getSalaries() {
         return salaries.toArray(new Salary[0]);
     }
+
+    public Salary getTopCard()
+    {
+        return salaries.remove(0);
+    }
+
+    public ArrayList<Salary> getListSalary()
+    {
+        return salaries;
+    }
 }

@@ -144,4 +144,25 @@ public class CareerDeck extends Deck
     public Career[] getCareers() {
         return careers.toArray(new Career[0]);
     }
+
+    public Career getTopCard(boolean degree)
+    {
+        if (!degree)
+        {
+            for (Career career : careers)
+            {
+                if (!career.reqDegree())
+                {
+                    careers.remove(career);
+                    return career;
+                }
+            }
+        }
+        return careers.remove(0);
+    }
+
+    public ArrayList<Career> getListCareers()
+    {
+        return careers;
+    }
 }
