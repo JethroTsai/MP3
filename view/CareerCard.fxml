@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.251" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="careerLabel" layoutX="106.0" layoutY="127.0" text="Career:" />
-      <Label fx:id="degreeLabel" layoutX="104.0" layoutY="164.0" text="Degree:" />
+      <Label fx:id="degreeLabel" layoutX="104.0" layoutY="164.0" text="Raises" />
       <Button layoutX="274.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
    </children>
 </AnchorPane>

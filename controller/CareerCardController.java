@@ -28,7 +28,7 @@ public class CareerCardController implements Initializable
     public void initialize(URL location, ResourceBundle resources)
     {
         careerLabel.setText("Career: " + career.getName());
-        degreeLabel.setText("Degree: " + career.reqDegree());
+        degreeLabel.setText("Degree: " + career.getRaises());
 
     }
 
