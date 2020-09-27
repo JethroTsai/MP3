@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="292.0" style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="122.0" layoutY="21.0" text="BlueCard" />
+      <Label layoutX="132.0" layoutY="133.0" text="Name" />
+      <Label layoutX="132.0" layoutY="183.0" text="Value" />
+      <Button layoutX="122.0" layoutY="361.0" mnemonicParsing="false" text="Continue" />
+      <Label layoutX="134.0" layoutY="240.0" text="Career" />
+   </children>
+</AnchorPane>
