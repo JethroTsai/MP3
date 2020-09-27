@@ -156,4 +156,25 @@ public class WindowCaller {
         player.setSalary(salary);
 
     }
+
+    public void actionCard(Action act)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        FXMLLoader actionCardLoader= new FXMLLoader(getClass().getResource("/view/ActionCard.fxml"));
+        ActionCardController actionCardController= new ActionCardController(act);
+        actionCardLoader.setController(actionCardController);
+
+        try {
+            stage.setScene(new Scene(actionCardLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+
+
+    }
 }
