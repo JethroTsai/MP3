@@ -122,6 +122,12 @@ public class Player
         this.salary.increaseSal();
     }
 
+    public void loan()
+    {
+        this.loans++;
+        receive(20000);
+    }
+
     /** returns the balance of the user
      *
      * @return total  balance of the user
@@ -143,18 +149,7 @@ public class Player
     {
         return loans;
     }
-     /** returns the name of the user
-     *
-     * @return name of the user
-     *
-     *
-     */
 
-     public void loan()
-     {
-         this.loans++;
-         receive(20000);
-     }
     public String getName()
     {
         return name;
@@ -203,16 +198,6 @@ public class Player
     public void addSpace()
     {
         this.space += 1;
-    }
-
-    public void yourTurn()
-    {
-        this.turn = true;
-    }
-
-    public void notYourTurn()
-    {
-        this.turn = false;
     }
 
     public boolean getTurn()

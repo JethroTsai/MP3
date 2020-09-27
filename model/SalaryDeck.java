@@ -38,27 +38,6 @@ public class SalaryDeck extends Deck
         Collections.shuffle(salaries);
     }
 
-    public void assign(Player p)
-    {
-        if (p.hasDegree())
-        {
-            this.showCard();
-            this.showCard();
-        }
-        else
-        {
-            this.showCard();
-        }
-        if (p.getSalary() != null)
-            salaries.add(p.getSalary());
-        p.setSalary(salaries.remove(0));
-    }
-
-    public void showCard()
-    {
-        System.out.println("model.Salary: " + salaries.get(0).getAmount() + " Tax: " + salaries.get(0).getTax());
-    }
-
     public Salary[] getSalaries() {
         return salaries.toArray(new Salary[0]);
     }

@@ -22,15 +22,8 @@ public class Space
         players.add(p);
     }
 
-    public void clearPlayer(Player player)
-    {
-        players.remove(player);
-    }
-
     public ArrayList<Player> getPlayers()
     {
         return players;
     }
-
-
 }

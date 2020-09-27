@@ -43,9 +43,9 @@ public class Career extends Card
 
     @Override
     public String toString() {
-        return "name=" + getName() +
-                ", degree=" + degree +
-                ", raises=" + raises +
-                ", raiseCount=" + raiseCount;
+        return "name = " + getName() +
+                ", degree = " + degree +
+                ", raises = " + raises +
+                ", raiseCount = " + raiseCount;
     }
 }

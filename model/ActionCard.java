@@ -75,18 +75,7 @@ public class ActionCard extends Deck
         count = 0;
         Collections.shuffle(actions);
     }
-    /**
-     * Displays the specific card that was given to the player
-     * 
-     * @return name of the action card
-     * 
-     */
-    public String dispCard()
-    {
-        Action act = actions.get(count);
 
-        return act.getName();
-    }
     /**
      * Displays all action cards generated
      * 
@@ -137,7 +126,6 @@ public class ActionCard extends Deck
             {
                 action.collectFromPlayer(p1, p2);
             }
-            System.out.println(p1.getName() + " gets " + dispCard() + "\n");
             count++;
         }   
         if (hasFinishDeck())
@@ -219,7 +207,6 @@ public class ActionCard extends Deck
                     System.out.print("\n\n");
                 }     
             }
-            System.out.println(p1.getName() + " gets " + dispCard() + "\n");
             count++;
         }
         if (hasFinishDeck())
