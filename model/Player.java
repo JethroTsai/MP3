@@ -194,9 +194,14 @@ public class Player
         this.salary = s;
     }
 
-    public void addSpace()
+    public void addChild()
     {
-        this.space += 1;
+        this.child++;
+    }
+
+    public void addSpace(int spaces)
+    {
+        this.space += spaces;
     }
 
     public void resetSpace()

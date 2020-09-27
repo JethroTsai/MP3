@@ -27,6 +27,7 @@ public class GameLayoutController {
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
+        pay.setDisable(true);
 
        if(gameResource.getCurrentPlayer().getPath()==null)
        {
@@ -40,15 +41,15 @@ public class GameLayoutController {
                gameResource.getCurrentPlayer().loan();
 
            }
-
-           else
+           else//Career Path
            {
-               new WindowCaller().careerCard(gameResource.getCareers().getCareers()[0],gameResource.getCurrentPlayer());
-               new WindowCaller().salaryCard(gameResource.getSalaries().getSalaries()[0],gameResource.getCurrentPlayer());
+               new WindowCaller().careerCard(gameResource.getCareers().getTopCard(false),gameResource.getCurrentPlayer());
+               new WindowCaller().salaryCard(gameResource.getSalaries().getTopCard(),gameResource.getCurrentPlayer());
            }
-
-
-
+       }
+       if(gameResource.getCurrentPlayer().getLoans() != 0)
+       {
+           pay.setDisable(false);
        }
 
 
@@ -150,13 +151,12 @@ public class GameLayoutController {
     {
         Random rand = new Random();
         Player currPlayer = gameResource.getCurrentPlayer();
-        int i, j = 0;
+        int i, j = 1;
         String spaceName;
 
         i = rand.nextInt(10) + 1;
 
-        while (!currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta") && j < i) {
-            currPlayer.addSpace();
+        while (!currPlayer.getPath().getSpace(currPlayer.getSpace() + j).getColor().equals("Magenta") && j < i) {
             j++;
         }
 
@@ -203,8 +203,9 @@ public class GameLayoutController {
             }
             else if (spaceName.equals("College Career Choice"))
             {
+
 //                gameResource.getCareers().getCareers()[0] -> gameResource.getCareer().getTopCard();
-                new WindowCaller().collegeCareerChoice(currPlayer, gameResource.getCareers().getCareers()[0], gameResource.getCareers().getCareers()[1], gameResource.getSalaries().getSalaries()[0], gameResource.getSalaries().getSalaries()[1]);
+                new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
 
             }
             else if (spaceName.equals("Job Search"))
@@ -221,13 +222,37 @@ public class GameLayoutController {
             }
             else if (spaceName.equals("Have Baby or Twins"))
             {
-
+                if ((rand.nextInt(10) + 1) % 2 == 0)
+                {
+                    currPlayer.addChild();
+                    currPlayer.addChild();
+                    while (!gameResource.getOtherPlayer().isEmpty())
+                    {
+                        gameResource.getOtherPlayer().remove(0).payPlayer(10000, currPlayer);
+                    }
+                }
+                else
+                {
+                    currPlayer.addChild();
+                    while (!gameResource.getOtherPlayer().isEmpty())
+                    {
+                        gameResource.getOtherPlayer().remove(0).payPlayer(5000, currPlayer);
+                    }
+                }
             }
-            else //junction
+            else //Which Path
             {
-
+                currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
+                currPlayer.resetSpace();
             }
         }
+        if (!currPlayer.getPath().getSpace(currPlayer.getSpace()).getColor().equals("Magenta"))
+        {
+            currPlayer.notYourTurn();
+        }
+
+        currPlayer.getPath().getSpace(currPlayer.getSpace());
+        currPlayer.addSpace(j);
     }
 
 

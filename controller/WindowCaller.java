@@ -9,14 +9,23 @@ import javafx.stage.StageStyle;
 import model.*;
 
 public class WindowCaller {
-    public void collegeCareerChoice(Player player, Career career1, Career career2, Salary salary1, Salary salary2) {
+    public void collegeCareerChoice(GameResource gameResource, Player player) {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
 
+        Career career1, career2;
+        Salary salary1, salary2;
+        career1 = gameResource.getCareers().getTopCard(player.hasDegree());
+        career2 = gameResource.getCareers().getTopCard(player.hasDegree());
+        salary1 = gameResource.getSalaries().getTopCard();
+        salary2 = gameResource.getSalaries().getTopCard();
+
         FXMLLoader collegeCareerChoiceLoader = new FXMLLoader(getClass().getResource("/view/CollegeCareerChoice.fxml"));
         CollegeCareerChoiceController collegeCareerChoiceController = new CollegeCareerChoiceController(career1, career2, salary1, salary2);
         collegeCareerChoiceLoader.setController(collegeCareerChoiceController);
+
+
 
         try {
             stage.setScene(new Scene(collegeCareerChoiceLoader.load()));
@@ -28,6 +37,25 @@ public class WindowCaller {
 
         player.setCareer(collegeCareerChoiceController.getChosenCareer());
         player.setSalary(collegeCareerChoiceController.getChosenSalary());
+
+        //return unchosen card
+        if (collegeCareerChoiceController.getChosenCareer().equals(career1))
+        {
+            gameResource.getCareers().getListCareers().add(career2);
+        }
+        else
+        {
+            gameResource.getCareers().getListCareers().add(career1);
+        }
+        if (collegeCareerChoiceController.getChosenSalary().equals(salary1))
+        {
+            gameResource.getSalaries().getListSalary().add(salary2);
+        }
+        else
+        {
+            gameResource.getSalaries().getListSalary().add(salary1);
+        }
+
     }
 
     public Card chooseHouseCard(House[] houses) {
