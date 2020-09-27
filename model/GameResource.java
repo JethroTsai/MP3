@@ -12,18 +12,21 @@ public class GameResource
     private Path startingCollegePath;
     private Path startingCareerPath;
     private int numberOfPlayers;
-    private Player[] players;
+    private ArrayList<Player> players;
+    private ArrayList<Player> retired;
     private ActionCard actions;
     private BlueDeck blues;
     private CareerDeck careers;
     private SalaryDeck salaries;
     private HouseDeck houses;
+    private int playerIndex = 0;
 
     public GameResource(int numberOfPlayers)
     {
         this.numberOfPlayers = numberOfPlayers;
-        players = new Player[numberOfPlayers];
-        players = generatePlayers();
+        players = new ArrayList<>();
+
+        generatePlayers();
         actions = generateActionCard();
         blues = generateBlueDeck();
         careers = generateCareerDeck();
@@ -235,30 +238,23 @@ public class GameResource
         return path;
     }
 
-    public Player[] generatePlayers()
+    public void generatePlayers()
     {
-        int i = 1;
-        Player[] players = new Player[numberOfPlayers];
-        while (i <= numberOfPlayers)
-        {
-            if (i == 1) {
-                players[i - 1] = new Player("P" + i);
-                players[i - 1].yourTurn();
-            }
-            else
-                players[i - 1] = new Player("P" + i);
-            i++;
+        for(int i = 0; i < numberOfPlayers; i++) {
+            players.add(new Player("P" + i));
         }
-
-        return players;
     }
 
     public Player getCurrentPlayer()
     {
-        int i = 0;
-        while(!players[i].getTurn() && i < players.length - 1)
-            i++;
-        return players[i];
+        return players.get(playerIndex);
+    }
+
+    public void incrementPlayerIndex() {
+        playerIndex++;
+        if(playerIndex == getNumberOfPlayers()) {
+            playerIndex = 0;
+        }
     }
 
     public ArrayList<Player> getOtherPlayer()
@@ -304,5 +300,17 @@ public class GameResource
 
     public HouseDeck getHouses() {
         return houses;
+    }
+
+    public int getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public ArrayList<Player> getRetired() {
+        return retired;
     }
 }

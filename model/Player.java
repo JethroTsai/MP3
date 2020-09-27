@@ -205,11 +205,6 @@ public class Player
         this.space += 1;
     }
 
-    public void resetSpace()
-    {
-        this.space = 0;
-    }
-
     public void yourTurn()
     {
         this.turn = true;
@@ -238,6 +233,7 @@ public class Player
     public void setPath(Path path1)
     {
         path=path1;
+        space=0;
     }
     
     public int retire(int place)
