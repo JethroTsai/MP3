@@ -245,7 +245,7 @@ public class GameLayoutController {
                 {
                     if(gameResource.getActions().showTop().getName().equalsIgnoreCase("Lawsuit"))
                     {
-                        System.out.println("hi");
+
                         currPlayer.payPlayer(gameResource.generateActionCard().getTopCard().getAmount(),new WindowCaller().actionChoice(gameResource.getOtherPlayer().get(0),gameResource.getOtherPlayer().get(1),"Lawsuit"));
                     }
 
