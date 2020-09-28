@@ -4,12 +4,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="337.0" prefWidth="501.0" style="-fx-background-color: magenta;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="32.0" prefHeight="187.0" prefWidth="472.0" rotate="-0.3" text="Label" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button layoutX="218.0" layoutY="337.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
+      <Button layoutX="218.0" layoutY="283.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
    </children>
 </AnchorPane>
