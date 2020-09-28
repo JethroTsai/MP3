@@ -31,6 +31,10 @@ public class GameLayoutController {
     private GameResource gameResource;
     private boolean ended = false;
 
+    /**
+     * sets the gameresource
+     * @param gameResource gameresource to be set
+     */
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
 
@@ -57,6 +61,10 @@ public class GameLayoutController {
         drawBoard();
     }
 
+    /**
+     * updates and shows stats on the board
+     * @param ae action event
+     */
     public void updateScreenStats(ActionEvent ae) {
         pay.setDisable(true);
         if(ended) {
@@ -98,6 +106,9 @@ public class GameLayoutController {
         }
     }
 
+    /**
+     * draws board
+     */
     public void drawBoard()
     {
        // minus Y = upward
@@ -160,6 +171,13 @@ public class GameLayoutController {
         drawPath(retirement, x, y, gc);
     }
 
+    /**
+     * draws path
+     * @param path Path class to be drawn
+     * @param x x coordinates
+     * @param y y coordinates
+     * @param gc graphics context of the canvas
+     */
     private void drawPath(Path path, int x, int y, GraphicsContext gc) {
         gc.strokeText(path.getName(), x + (path.getNSpaces() / 2) * 50, y - 10);
         for(Space space : path.getSpaces()) {
@@ -168,6 +186,13 @@ public class GameLayoutController {
         }
     }
 
+    /**
+     * draws space
+     * @param space space to be drawn
+     * @param x x coordinates
+     * @param y y coordinates
+     * @param gc graphics context of canvas
+     */
     private void drawSpace(Space space, int x, int y, GraphicsContext gc) {
         int i = 0;
         if(space.getColor().equals("Orange")) gc.setFill(Color.ORANGE);
@@ -182,6 +207,11 @@ public class GameLayoutController {
         }
     }
 
+    /**
+     * moves player when spin is clicked
+     * @param ae is the action event of the spin button
+     * @throws IOException
+     */
     @FXML
     public void onClickSpin(ActionEvent ae) throws IOException {
         if(spin.getText().equals("End Game")) {
@@ -251,6 +281,10 @@ public class GameLayoutController {
         }
     }
 
+    /**
+     * handles space
+     * @param space space to be handled
+     */
     public void handleSpace(Space space) {
 //        System.out.println("Handling " + space.getColor());
         String spaceName;

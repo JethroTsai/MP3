@@ -24,6 +24,12 @@ public class ActionChoiceController implements Initializable {
     Player other1,other2,chosen;
     String name;
 
+    /**
+     * instantiates the controller
+     * @param p1 is the first other player
+     * @param p2 is the second other player
+     * @param name is the name of the card
+     */
     public ActionChoiceController(Player p1, Player p2,String name)
     {
         other1=p1;
@@ -31,6 +37,11 @@ public class ActionChoiceController implements Initializable {
         this.name=name;
     }
 
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -47,6 +58,10 @@ public class ActionChoiceController implements Initializable {
         });
     }
 
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae)
     {

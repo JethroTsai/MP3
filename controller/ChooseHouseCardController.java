@@ -22,10 +22,18 @@ public class ChooseHouseCardController implements Initializable {
     private House[] houses;
     private House chosenHouse;
 
+    /**
+     * instantiates the controller
+     * @param houses array of houses
+     */
     public ChooseHouseCardController(House[] houses) {
         this.houses = houses;
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cont.setDisable(true);
@@ -39,7 +47,10 @@ public class ChooseHouseCardController implements Initializable {
                 cont.setDisable(false);
         });
     }
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae) {
         chosenHouse = houses[comboBox.getSelectionModel().getSelectedIndex()];

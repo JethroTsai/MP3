@@ -74,12 +74,19 @@ public class Player
         pob.receive(amount);
     }
 
+    /**
+     * buys house
+     * @param house is the House card
+     */
     public void buyHouse(House house)
     {
         pay(house.getPrice());
         this.house = house;
     }
 
+    /**
+     * sells house and receives the selling price
+     */
     public void sellHouse()
     {
         if(house!=null)
@@ -91,6 +98,9 @@ public class Player
 
     }
 
+    /**
+     * marries the player
+     */
     public void marry()
     {
         this.married = true;
@@ -111,22 +121,34 @@ public class Player
         }
     }
 
+    /**
+     * reset raises of player
+     */
     public void resetRaises()
     {
         this.raiseCount = 0;
     }
 
+    /**
+     * graduates player
+     */
     public void graduate()
     {
         degree=true;
     }
 
+    /**
+     * adds raises of player
+     */
     public void addRaise()
     {
         this.raiseCount += 1;
         this.salary.increaseSal();
     }
 
+    /**
+     * borrow loan
+     */
     public void loan()
     {
         this.loans++;
@@ -155,83 +177,146 @@ public class Player
         return loans;
     }
 
+    /**
+     * returns the name of player
+     * @return name of player
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * returns career of player
+     * @return Career of player
+     */
     public Career getCareer()
     {
         return career;
     }
 
+    /**
+     * returns salary of player
+     * @return Salary of player
+     */
     public Salary getSalary()
     {
         return salary;
     }
 
+    /**
+     * returns house of player
+     * @return house of player
+     */
     public House getHouse()
     {
         return house;
     }
 
+    /**
+     * returns space of player
+     * @return current space of player
+     */
     public int getSpace()
     {
         return space;
     }
 
+    /**
+     * returns path of player
+     * @return current path of player
+     */
     public Path getPath()
     {
         return path;
     }
-   
+
+    /**
+     * sets career of player
+     * @param c CareerCard
+     */
     public void setCareer(Career c)
     {
         this.career = c;
     }
 
+    /**
+     * sets salary of player
+     * @param s Salary Card
+     */
     public void setSalary(Salary s)
     {
         this.salary = s;
     }
 
+    /**
+     * adds children to player
+     */
     public void addChild()
     {
         this.child++;
     }
 
+    /**
+     * counts the number of children the player has and the player will receive
+     * 10000*n , where in n is the number of children the player has
+     */
     public void sellChild()
     {
         this.balance += (child * 10000);
         this.child = 0;
     }
 
+    /**
+     * adds 1 to space
+     */
     public void addSpace()
     {
         this.space += 1;
     }
 
+    /**
+     * gets turn of player
+     * @return turn of player
+     */
     public boolean getTurn()
     {
         return turn;
     }
 
+    /**
+     * checks if player has degree
+     * @return boolean
+     */
     public boolean hasDegree()
     {
         return degree;
     }
 
+    /**
+     * checks if player is married
+     * @return boolean
+     */
     public boolean isMarried()
     {
        return married;
     }
 
+    /**
+     * sets path and resets spaces
+     * @param path1 Path to be set
+     */
     public void setPath(Path path1)
     {
         path=path1;
         space=0;
     }
-    
+
+    /**
+     * retires player
+     * @param place position where the player finishes
+     * @return place of player
+     */
     public int retire(int place)
     {
         this.retired = true;
@@ -245,6 +330,10 @@ public class Player
         return place;
     }
 
+    /**
+     * returns retired status of player
+     * @return boolean
+     */
     public boolean isRetired()
     {
         return retired;

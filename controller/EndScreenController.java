@@ -30,6 +30,10 @@ public class EndScreenController implements Initializable {
     int balance;
     boolean status;
 
+    /**
+     * instantiates the object
+     * @param retired arrayList of retired players
+     */
     public EndScreenController(ArrayList<Player> retired)
     {
         Player player = retired.remove(0);
@@ -38,7 +42,11 @@ public class EndScreenController implements Initializable {
         this.balance = player.getBalance();
         this.status = player.isMarried();
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -55,7 +63,10 @@ public class EndScreenController implements Initializable {
         }
     }
 
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     public void onClickContinue(ActionEvent ae) throws IOException
     {
         Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();

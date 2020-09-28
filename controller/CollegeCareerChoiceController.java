@@ -28,13 +28,24 @@ public class CollegeCareerChoiceController implements Initializable {
     private Career chosenCareer;
     private Salary chosenSalary;
 
+    /**
+     * instantiates the controller
+     * @param career1 first career card drawn
+     * @param career2 second career card drawn
+     * @param salary1 first salary card drawn
+     * @param salary2 second salary card drawn
+     */
     public CollegeCareerChoiceController(Career career1, Career career2, Salary salary1, Salary salary2) {
         this.career1 = career1;
         this.career2 = career2;
         this.salary1 = salary1;
         this.salary2 = salary2;
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         continueButton.setDisable(true);
@@ -59,7 +70,10 @@ public class CollegeCareerChoiceController implements Initializable {
             else continueButton.setDisable(false);
         });
     }
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae) {
         chosenCareer = careerCombobox.getSelectionModel().getSelectedIndex() == 0 ? career1 : career2;
@@ -67,10 +81,18 @@ public class CollegeCareerChoiceController implements Initializable {
         ((Stage) ((Node) ae.getSource()).getScene().getWindow()).close();
     }
 
+    /**
+     * gets career chosen by the user
+     * @return chosen career
+     */
     public Career getChosenCareer() {
         return chosenCareer;
     }
 
+    /**
+     * gets salary chosen by the user
+     * @return salary chosen by the user
+     */
     public Salary getChosenSalary() {
         return chosenSalary;
     }

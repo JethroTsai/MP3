@@ -9,11 +9,17 @@ public class BlueDeck extends Deck
     public static final String[] BLUE_CARD_NAMES = {"Lawsuit", "TaxDue", "TipServer", "SkiAccident", "CompRepair", "WorldCup", "F1Race"};
     public static final String[] BLUE_CARD_JOBS = {"Lawyer", "Accountant", "Server", "Doctor", "Computer Consultant", "Athlete", "Racecar Driver"};
 
+    /**
+     * instantiates the arrayList of blueCards
+     */
     public BlueDeck()
     {
         blueCards = new ArrayList<> ();
     }
-    
+
+    /**
+     * generates blue cards
+     */
     @Override
     public void generate()
     {
@@ -24,6 +30,9 @@ public class BlueDeck extends Deck
         this.shuffleCards();
     }
 
+    /**
+     * shuffle cards
+     */
     @Override
     public void shuffleCards()
     {
@@ -31,6 +40,11 @@ public class BlueDeck extends Deck
         Collections.shuffle(blueCards);
     }
 
+    /**
+     * exeutes effect for 1 player
+     * @param p1 is the player object
+     * @param blue is bluecard object
+     */
     public void execute(Player p1, BlueCard blue)
     {
         if(blue.checkCareer(blue.getJob(), p1.getCareer()))
@@ -52,6 +66,12 @@ public class BlueDeck extends Deck
         }
     }
 
+    /**
+     * executes card effect if other players have  the same career
+     * @param p1 player object that will pay
+     * @param p2 player object that will receive payment
+     * @param blue the bluecard object
+     */
     public void execute(Player p1, Player p2, BlueCard blue)
     {
         System.out.println(p1.getName() + " pays " + p2.getName());
@@ -65,16 +85,30 @@ public class BlueDeck extends Deck
         else if (blue.getName().equalsIgnoreCase("f1Race")) p1.payPlayer(blue.f1Race(p1), p2);
     }
 
+    /**
+     * returns and removes the card on top
+     * @return BlueCard on top
+     */
     public BlueCard getTopCard()
     {
         return blueCards.remove(0);
     }
+
+    /**
+     * adds BlueCard to deck
+     * @param blue BlueCard object
+     */
 
     public void addCard(BlueCard blue)
     {
         blueCards.add(blue);
     }
 
+    /**
+     * checks if deck is finish
+     *
+     * @return boolean
+     */
     public boolean hasFinishDeck()
     {
         return count == MAX;

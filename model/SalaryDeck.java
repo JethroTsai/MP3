@@ -8,11 +8,17 @@ public class SalaryDeck extends Deck
     private Random rand = new Random(); 
     private int nCards;
 
+    /**
+     * instantiates object
+     */
     public SalaryDeck()
     {
         salaries = new ArrayList <> ();
     }
 
+    /**
+     * generates cards
+     */
     @Override
     public void generate()
     {
@@ -32,6 +38,9 @@ public class SalaryDeck extends Deck
 
     }
 
+    /**
+     * shuffles cards
+     */
     @Override
     public void shuffleCards()
     {
@@ -42,11 +51,19 @@ public class SalaryDeck extends Deck
         return salaries.toArray(new Salary[0]);
     }
 
+    /**
+     * returns and removes card
+     * @return top card of the deck
+     */
     public Salary getTopCard()
     {
         return salaries.remove(0);
     }
 
+    /**
+     * returns arrayList of SalaryCards
+     * @return ArrayList of Salary cards
+     */
     public ArrayList<Salary> getListSalary()
     {
         return salaries;

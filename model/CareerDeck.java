@@ -9,11 +9,17 @@ public class CareerDeck extends Deck
     private static final String[] CAREER_NAMES={"Doctor","Lawyer","Accountant","Computer Consultant","Server","Racecar Driver","Athlete"};
     Scanner kb= new Scanner(System.in);
 
+    /**
+     * instantiates arraylist of careers
+     */
     public CareerDeck()
     {
         careers = new ArrayList<> ();
     }
 
+    /**
+     * generates career cards
+     */
     @Override
     public void generate()
     {
@@ -60,12 +66,20 @@ public class CareerDeck extends Deck
         this.shuffleCards();
     }
 
+    /**
+     * shuffles cards
+     */
     @Override
     public void shuffleCards()
     {
         Collections.shuffle(careers);
     }
 
+    /**
+     * gets index of career card where if it is applicable to the player
+     * @param p is the player to be compared
+     * @return index of the applicable card
+     */
     public int getCareerCard(Player p)
     {
         int i = 0;
@@ -79,6 +93,11 @@ public class CareerDeck extends Deck
         return i;
     }
 
+    /**
+     * makes player choose career
+     * @param p is the player
+     * @return chosen career
+     */
     public int chooseCareer(Player p)
     {
         int i = 0;
@@ -106,6 +125,10 @@ public class CareerDeck extends Deck
         return i;
     }
 
+    /**
+     * assigns career to player
+     * @param p is the Player
+     */
     public void assign(Player p)
     {
         int i = 0;
@@ -136,15 +159,28 @@ public class CareerDeck extends Deck
         }
     }
 
+    /**
+     * returns player's career to deck
+     * @param p is the player
+     */
     public void returnCareer(Player p)
     {
         careers.add(p.getCareer());
     }
 
+    /**
+     * gets career deck and transforms it to array
+     * @return array containing cards
+     */
     public Career[] getCareers() {
         return careers.toArray(new Career[0]);
     }
 
+    /**
+     * checks degree and gets top card if it is applicable
+     * @param degree degree of player
+     * @return applicable cards
+     */
     public Career getTopCard(boolean degree)
     {
         if (!degree)
@@ -161,6 +197,10 @@ public class CareerDeck extends Deck
         return careers.remove(0);
     }
 
+    /**
+     * returns the career deck
+     * @return career deck
+     */
     public ArrayList<Career> getListCareers()
     {
         return careers;

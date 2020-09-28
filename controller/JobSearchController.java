@@ -28,13 +28,24 @@ public class JobSearchController implements Initializable {
     private Career chosenCareer;
     private Salary chosenSalary;
 
+    /**
+     * instantiates the object
+     * @param career1 orig career of player
+     * @param career2 new career offered
+     * @param salary1 orig salary of player
+     * @param salary2 new salary offered
+     */
     public JobSearchController(Career career1, Career career2, Salary salary1, Salary salary2) {
         this.career1 = career1;
         this.career2 = career2;
         this.salary1 = salary1;
         this.salary2 = salary2;
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         continueButton.setDisable(true);
@@ -59,7 +70,10 @@ public class JobSearchController implements Initializable {
             else continueButton.setDisable(false);
         });
     }
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae) {
         chosenCareer = careerCombobox.getSelectionModel().getSelectedIndex() == 0 ? career1 : career2;
@@ -67,10 +81,18 @@ public class JobSearchController implements Initializable {
         ((Stage) ((Node) ae.getSource()).getScene().getWindow()).close();
     }
 
+    /**
+     * returns career chosen by the user
+     * @return career chosen
+     */
     public Career getChosenCareer() {
         return chosenCareer;
     }
 
+    /**
+     * returns salary chosen by the user
+     * @return chosen salary
+     */
     public Salary getChosenSalary() {
         return chosenSalary;
     }

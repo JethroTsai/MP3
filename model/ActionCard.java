@@ -223,11 +223,20 @@ public class ActionCard extends Deck
         return count == MAX;
     }
 
+    /**
+     * shows the top card but does not remove it from deck
+     * @return actioncard on top of the deck
+     */
     public Action showTop()
     {
         return actions.get(0);
     }
-
+    /**
+     *
+     *
+     *  shows the top card and removes from deck
+     *   @return actioncard on top of the deck
+     */
     public Action getTopCard()
     {
         Action act;

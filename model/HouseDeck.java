@@ -7,11 +7,17 @@ public class HouseDeck
     private ArrayList<House> houses;
     private final static String[] HOUSE_NAMES = {"Apartment", "Condo", "Mansion", "Beach House"};
 
+    /**
+     * instantiates arrayList of houses
+     */
     public HouseDeck()
     {
         houses = new ArrayList<>();
     }
 
+    /**
+     * generates houses
+     */
     public void generate()
     {
         Random rand = new Random();
@@ -25,6 +31,10 @@ public class HouseDeck
         }
     }
 
+    /**
+     * returns the decks of houses to arrays
+     * @return house array
+     */
     public House[] getHouses()
     {
         return houses.toArray(new House[0]);

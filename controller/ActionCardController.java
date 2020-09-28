@@ -19,18 +19,30 @@ public class ActionCardController implements Initializable {
     @FXML
     Label nameLabel;
 
-
+    /**
+     * instantiates the controller
+     * @param action Action card
+     */
     public ActionCardController(Action action)
     {
         act=action;
     }
 
+    /**
+     * initiaizes the parts of the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         nameLabel.setText(act.toString());
     }
 
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     public void onClickContinue(ActionEvent ae)
     {
         ((Stage) ((Node) ae.getSource()).getScene().getWindow()).close();

@@ -24,7 +24,11 @@ public class MenuController implements Initializable {
     private ChoiceBox choice;
     @FXML
     private ImageView image;
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -32,7 +36,10 @@ public class MenuController implements Initializable {
         choice.setItems(numberOfPlayers);
         choice.setValue(numberOfPlayers.get(0));
     }
-
+    /**
+     * sets what happens when  button is clicked
+     * @param event is the action event
+     */
     @FXML
     public void onClickStart(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

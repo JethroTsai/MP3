@@ -22,12 +22,21 @@ public class PathChoiceController implements Initializable
     private Path path1,path2;
     private Path chosenPath;
 
+    /**
+     * instantiates controller
+     * @param path1 first path
+     * @param path2 second path
+     */
     public PathChoiceController(Path path1, Path path2)
     {
         this.path1=path1;
         this.path2=path2;
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -44,7 +53,10 @@ public class PathChoiceController implements Initializable
         });
 
     }
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae)
     {
@@ -58,7 +70,10 @@ public class PathChoiceController implements Initializable
 
     }
 
-
+    /**
+     * returns path chosen by the user
+     * @return chosen Path
+     */
     public Path getChosenPath()
     {
         return chosenPath;

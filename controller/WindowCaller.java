@@ -11,6 +11,11 @@ import model.*;
 import java.util.ArrayList;
 
 public class WindowCaller {
+    /**
+     * calls for the career choice controller
+     * @param gameResource Gameresource of the game
+     * @param player player involved
+     */
     public void collegeCareerChoice(GameResource gameResource, Player player) {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
@@ -60,6 +65,11 @@ public class WindowCaller {
 
     }
 
+    /**
+     * calls for the choose house controller and returns chosen house
+     * @param houses array of houses
+     * @return chosen house
+     */
     public Card chooseHouseCard(House[] houses) {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UTILITY);
@@ -80,6 +90,12 @@ public class WindowCaller {
         return chooseHouseCardController.getChosenHouse();
     }
 
+    /**
+     * calls the choosePath controller
+     * @param path1 first path
+     * @param path2 second path
+     * @return path chosen
+     */
     public Path choosePath(Path path1, Path path2) {
         Path chosenPath = null;
 
@@ -113,6 +129,11 @@ public class WindowCaller {
         return pathChoiceController.getChosenPath();
     }
 
+    /**
+     * calls for career card controller and sets the career
+     * @param career career to be dispplayed
+     * @param player player involved
+     */
     public void careerCard(Career career,Player player)
     {
         Stage stage = new Stage();
@@ -136,6 +157,11 @@ public class WindowCaller {
 
     }
 
+    /**
+     * calls for salary card controller and sets salary
+     * @param salary salary card
+     * @param player player involved
+     */
     public void salaryCard(Salary salary,Player player)
     {
         Stage stage = new Stage();
@@ -159,6 +185,10 @@ public class WindowCaller {
 
     }
 
+    /**
+     * calls for actionCard controller
+     * @param act Action Card
+     */
     public void actionCard(Action act)
     {
         Stage stage = new Stage();
@@ -180,6 +210,10 @@ public class WindowCaller {
 
     }
 
+    /**
+     * calls for blueCard controller
+     * @param blueCard BlueCard
+     */
     public void bluecard(BlueCard blueCard)
     {
         Stage stage = new Stage();
@@ -200,6 +234,10 @@ public class WindowCaller {
 
     }
 
+    /**
+     * calls for GreenSpace Controller
+     * @param name name of GreenSpace
+     */
     public void greenSpace(String name)
     {
         Stage stage = new Stage();
@@ -217,7 +255,10 @@ public class WindowCaller {
         stage.showAndWait();
     }
 
-
+    /**
+     * calls for message controller
+     * @param name message
+     */
     public void messageBox(String name)
     {
         Stage stage = new Stage();
@@ -236,6 +277,10 @@ public class WindowCaller {
         stage.showAndWait();
     }
 
+    /**
+     * calls for end game controller
+     * @param retired arrayList of retired players
+     */
     public void EndScreen(ArrayList<Player> retired)
     {
         Stage stage = new Stage();
@@ -254,6 +299,13 @@ public class WindowCaller {
         stage.showAndWait();
     }
 
+    /**
+     * calls for action choice controller and returns player chosen
+     * @param p1 first other player
+     * @param p2 second other player
+     * @param name the name of the action
+     * @return chosen Player
+     */
     public Player actionChoice(Player p1, Player p2,String name)
 
     {
@@ -275,7 +327,11 @@ public class WindowCaller {
         return actionChoiceController.getChosen();
     }
 
-
+    /**
+     * calls for job search controller
+     * @param gameResource GameResource of the game
+     * @param player Player involved
+     */
     public void jobSearch(GameResource gameResource,Player player )
     {
         Stage stage = new Stage();

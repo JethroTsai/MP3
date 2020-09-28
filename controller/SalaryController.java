@@ -17,11 +17,19 @@ public class SalaryController implements Initializable
     Label careerLabel,degreeLabel;
     private Salary pay;
 
+    /**
+     * instantiates the controller
+     * @param salary Salary Card
+     */
     public SalaryController(Salary salary)
     {
         pay=salary;
     }
-
+    /**
+     * initializes the parts for the GUI
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -29,7 +37,10 @@ public class SalaryController implements Initializable
         degreeLabel.setText("tax: "+ pay.getTax());
 
     }
-
+    /**
+     * sets what happens when continue button is clicked
+     * @param ae is the action event
+     */
     @FXML
     public void onClickContinue(ActionEvent ae)
     {
