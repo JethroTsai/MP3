@@ -39,6 +39,8 @@ public class GameLayoutController {
         for(Player player : gameResource.getPlayers()) {
             if(player.getPath()==null)
             {
+//                player.setPath(gameResource.getStartingCareerPath().getPath1().getPath1().getPath1().getPath1().getPath1());
+//                System.out.println(player.getPath().getName());
                 player.setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
                 player.getPath().getSpaces().get(player.getSpace()).addPlayer(player);
                 System.out.println(player.getPath().getName());

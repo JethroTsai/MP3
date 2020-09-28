@@ -249,14 +249,15 @@ public class GameResource
 
     public Player getCurrentPlayer()
     {
-        return players.get(playerIndex);
+        // its either the last index of players, or the player index (if correct)
+        return players.get(Math.min(players.size() - 1, playerIndex));
     }
 
     public void incrementPlayerIndex() {
         if(playerIndex != getNumberOfPlayers()) {
             playerIndex++;
         }
-        if(playerIndex == getNumberOfPlayers()) {
+        if(playerIndex >= getNumberOfPlayers()) {
             playerIndex = 0;
         }
     }
