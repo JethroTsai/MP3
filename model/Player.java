@@ -76,7 +76,7 @@ public class Player
 
     public void buyHouse(House house)
     {
-        this.balance -= house.getPrice();
+        pay(house.getPrice());
         this.house = house;
     }
 

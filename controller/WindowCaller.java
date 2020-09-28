@@ -214,4 +214,23 @@ public class WindowCaller {
 
         stage.showAndWait();
     }
+
+
+    public void messageBox(String name)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader messageLoad= new FXMLLoader(getClass().getResource("/view/MessageWindow.fxml"));
+        MessageController messageController=new MessageController(name);
+        messageLoad.setController(messageController);
+
+        try {
+            stage.setScene(new Scene(messageLoad.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+    }
 }

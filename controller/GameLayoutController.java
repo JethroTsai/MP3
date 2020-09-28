@@ -282,7 +282,9 @@ public class GameLayoutController {
                 new WindowCaller().greenSpace(spaceName);
                 if (spaceName.equals("Pay Day")) {
                     ((GreenSpace) space).giveSalary(currPlayer);
-                } else {
+                }
+                else
+                    {
                     ((GreenSpace) space).raiseSalary(currPlayer);
                 }
             } else if (space.getColor().equals("Magenta")) //magenta space
@@ -299,8 +301,19 @@ public class GameLayoutController {
                 } else if (spaceName.equals("Job Search")) {
 //                new WindowCaller().askPlayerToKeepCareer(currPlayer, gameResource.getCareers().getCareers()[0]);
                 } else if (spaceName.equals("Buy a House")) {
-                    new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses());
-                } else if (spaceName.equals("Get Married")) {
+
+                    if(currPlayer.getHouse()!=null)
+                    {
+                        new WindowCaller().messageBox("You already have a house " + currPlayer.getName());
+                    }
+                    else
+                        {
+                            House house=((House)new WindowCaller().chooseHouseCard(gameResource.getHouses().getHouses()));
+                            currPlayer.buyHouse(house);
+                        }
+
+                }
+                else if (spaceName.equals("Get Married")) {
 
                     currPlayer.marry();
                     System.out.println(currPlayer.isMarried());
