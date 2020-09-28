@@ -30,8 +30,6 @@ public class GameLayoutController {
 
     private GameResource gameResource;
     private boolean ended = false;
-//    private ArrayList<Player> activePlayers;
-//    private ArrayList<Player> retiredPlayers;
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
@@ -43,7 +41,7 @@ public class GameLayoutController {
 //                System.out.println(player.getPath().getName());
                 player.setPath(new WindowCaller().choosePath(gameResource.getStartingCareerPath(),gameResource.getStartingCollegePath()));
                 player.getPath().getSpaces().get(player.getSpace()).addPlayer(player);
-                System.out.println(player.getPath().getName());
+//                System.out.println(player.getPath().getName());
                 if(player.getPath().getName().equals("College Path"))
                 {
                     player.loan();
@@ -208,7 +206,7 @@ public class GameLayoutController {
         for (int j = 0; j < i && moving; j++)
         {
             currPlayer.addSpace();
-            System.out.println(currPlayer.getPath().getNSpaces() + " " + (currPlayer.getSpace() + 1));
+//            System.out.println(currPlayer.getPath().getNSpaces() + " " + (currPlayer.getSpace() + 1));
             if (currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1)
             {
                 if ((currPlayer.getPath().getSpace(currPlayer.getSpace())).getColor().equals("Magenta"))
@@ -218,7 +216,7 @@ public class GameLayoutController {
                 }
                 else
                 {
-                    System.out.println("HATDOG LAKI");
+//                    System.out.println("HATDOG");
                     currPlayer.setPath(currPlayer.getPath().getPath1());
                 }
             } else {
@@ -254,7 +252,7 @@ public class GameLayoutController {
     }
 
     public void handleSpace(Space space) {
-        System.out.println("Handling " + space.getColor());
+//        System.out.println("Handling " + space.getColor());
         String spaceName;
         Player currPlayer = gameResource.getCurrentPlayer();
         Random rand = new Random();
@@ -280,7 +278,7 @@ public class GameLayoutController {
 
                 else if(gameResource.getActions().showTop().getName().equalsIgnoreCase("File a Lawsuit"))
                 {
-                    System.out.println("hi");
+//                    System.out.println("hi");
                     int amount=gameResource.getActions().getTopCard().getAmount();
                     Player play=new WindowCaller().actionChoice(gameResource.getOtherPlayer().get(0),gameResource.getOtherPlayer().get(1),"File a Lawsuit " + amount);
 
@@ -360,7 +358,7 @@ public class GameLayoutController {
         } else if (space.getColor().equals("Magenta")) //magenta space
         {
             spaceName = ((MagentaSpace) space).getName();
-            System.out.println(spaceName);
+//            System.out.println(spaceName);
             if (spaceName.equals("Graduation")) {
                 new WindowCaller().messageBox("Congratulations!!! You have graduated.");
                 currPlayer.graduate();

@@ -171,15 +171,15 @@ public class ActionCard extends Deck
                     if (userName.equalsIgnoreCase(p2.getName()))
                     {
                         action.payPlayerAction(p1, p2);
-                        System.out.print("\n\n"+ p1.getName() + " pays " + p2.getName() + " " + action.getAmount());
+                        //System.out.print("\n\n"+ p1.getName() + " pays " + p2.getName() + " " + action.getAmount());
                     }
                     else if (userName.equalsIgnoreCase(p3.getName()))
                     {
                         action.payPlayerAction(p1, p3);
-                        System.out.print("\n\n"+ p1.getName() + " pays " + p3.getName() + " " + action.getAmount());
+                        //System.out.print("\n\n"+ p1.getName() + " pays " + p3.getName() + " " + action.getAmount());
                     }
                     
-                    System.out.print("\n\n");
+                    //System.out.print("\n\n");
                 } 
             }
             else if (type.equals(new String("ColP")))
@@ -196,15 +196,15 @@ public class ActionCard extends Deck
                     if (userName.equalsIgnoreCase(p2.getName()))
                     {
                         action.collectFromPlayer(p1, p2);
-                        System.out.print("\n\n"+ p1.getName() + " collects " + action.getAmount()+ " from"+ p2.getName());
+                        //System.out.print("\n\n"+ p1.getName() + " collects " + action.getAmount()+ " from"+ p2.getName());
                     }
                     else if (userName.equalsIgnoreCase(p3.getName()))
                     {
                         action.collectFromPlayer(p1, p3);
-                        System.out.print("\n\n"+ p1.getName() + " collects " + action.getAmount() + " from" + p3.getName());
+                        //System.out.print("\n\n"+ p1.getName() + " collects " + action.getAmount() + " from" + p3.getName());
                     }
 
-                    System.out.print("\n\n");
+                    //System.out.print("\n\n");
                 }     
             }
             count++;

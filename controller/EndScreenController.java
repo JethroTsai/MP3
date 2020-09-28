@@ -21,11 +21,11 @@ public class EndScreenController implements Initializable {
     @FXML
     Label nameLabel, balanceLabel, statusLabel;
 
-//    @FXML
-//    Label careerLabel;
+    @FXML
+    Label careerLabel;
 
     String name;
-//    String career;
+    String career;
 
     int balance;
     boolean status;
@@ -34,7 +34,7 @@ public class EndScreenController implements Initializable {
     {
         Player player = retired.remove(0);
         this.name = player.getName();
-//        this.career = player.getCareer().getName();
+        this.career = player.getCareer().getName();
         this.balance = player.getBalance();
         this.status = player.isMarried();
     }
@@ -44,7 +44,7 @@ public class EndScreenController implements Initializable {
     {
         nameLabel.setText("Player Name: " + name);
         balanceLabel.setText("Balance: " + balance);
-//        careerLabel.setText("Career: " + career);
+        careerLabel.setText("Career: " + career);
         if (status)
         {
             statusLabel.setText("Status: Married");
