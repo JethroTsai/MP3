@@ -279,6 +279,7 @@ public class GameLayoutController {
             {
                 System.out.println("GREENTICO");
                 spaceName = ((GreenSpace) space).getName();
+                new WindowCaller().greenSpace(spaceName);
                 if (spaceName.equals("Pay Day")) {
                     ((GreenSpace) space).giveSalary(currPlayer);
                 } else {

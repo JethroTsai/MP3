@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="318.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="119.0" layoutY="344.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
+      <Button layoutX="128.0" layoutY="340.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
       <Pane layoutX="22.0" layoutY="14.0" prefHeight="291.0" prefWidth="276.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="23.0" text="BlueCard" textAlignment="CENTER">

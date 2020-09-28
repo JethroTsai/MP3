@@ -223,6 +223,11 @@ public class ActionCard extends Deck
         return count == MAX;
     }
 
+    public Action showTop()
+    {
+        return actions.get(0);
+    }
+
     public Action getTopCard()
     {
         Action act;

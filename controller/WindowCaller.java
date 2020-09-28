@@ -197,4 +197,21 @@ public class WindowCaller {
 
 
     }
+
+    public void greenSpace(String name)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader greenSpaceLoader= new FXMLLoader(getClass().getResource("/view/GreenSpace.fxml"));
+        GreenSpaceController greenSpaceController= new GreenSpaceController(name);
+        greenSpaceLoader.setController(greenSpaceController);
+        try {
+            stage.setScene(new Scene(greenSpaceLoader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+    }
 }
