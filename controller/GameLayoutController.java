@@ -27,6 +27,8 @@ public class GameLayoutController {
 
     private GameResource gameResource;
     private boolean ended = false;
+    private ArrayList<Player> activePlayers;
+    private ArrayList<Player> retiredPlayers;
 
     public void setGameResource(GameResource gameResource) {
         this.gameResource = gameResource;
@@ -309,7 +311,6 @@ public class GameLayoutController {
                 gameResource.getBlues().addCard(blue);
             } else if (space.getColor().equals("Green")) //green space
             {
-                System.out.println("GREENTICO");
                 spaceName = ((GreenSpace) space).getName();
                 new WindowCaller().greenSpace(spaceName);
                 if (spaceName.equals("Pay Day")) {
@@ -374,32 +375,31 @@ public class GameLayoutController {
                 }
                 else if (spaceName.equals("Retirement"))
                 {
-                    if (gameResource.getOtherPlayer().size() == 1) {
-                        if (gameResource.getOtherPlayer().get(0).isRetired())
-                            currPlayer.retire(2);
-                        else
-                            currPlayer.retire(1);
-                    }
-                    else
-                    {
-                        if (gameResource.getOtherPlayer().get(0).isRetired()) {
-                            if (gameResource.getOtherPlayer().get(1).isRetired())
-                                currPlayer.retire(3);
-                            else
-                                currPlayer.retire(2);
-                        }
-                        else if (gameResource.getOtherPlayer().get(1).isRetired()) {
-                            currPlayer.retire(2);
-                        }
-                        else
-                        {
-                            currPlayer.retire(1);
-                        }
-                    }
-//                    gameResource.retirePlayer(currPlayer);
-//                    activePlayers.remove(currPlayer);
-//                    currPlayer.retire();
-//                    retiredPlayers.add(currPlayer);
+//                   if (gameResource.getOtherPlayer().size() == 1) {
+//                       if (gameResource.getOtherPlayer().get(0).isRetired())
+//                           currPlayer.retire(2);
+//                       else
+//                           currPlayer.retire(1);
+//                   }
+//                   else
+//                   {
+//                       if (gameResource.getOtherPlayer().get(0).isRetired()) {
+//                           if (gameResource.getOtherPlayer().get(1).isRetired())
+//                               currPlayer.retire(3);
+//                           else
+//                               currPlayer.retire(2);
+//                       }
+//                       else if (gameResource.getOtherPlayer().get(1).isRetired()) {
+//                           currPlayer.retire(2);
+//                       }
+//                       else
+//                       {
+//                           currPlayer.retire(1);
+//                       }
+//                   }
+                    activePlayers.remove(currPlayer);
+                    currPlayer.retire(retiredPlayers.size() + 1);
+                    retiredPlayers.add(currPlayer);
                 }
             }
         }

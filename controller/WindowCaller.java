@@ -236,39 +236,42 @@ public class WindowCaller {
         stage.showAndWait();
     }
 
-<<<<<<< HEAD
     public void EndScreen(ArrayList<Player> retired)
-=======
-    public Player actionChoice(Player p1, Player p2,String name)
->>>>>>> 9a6935b3459127c74109c8d3f19e5f32e0d65849
     {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UTILITY);
         stage.initModality(Modality.APPLICATION_MODAL);
-<<<<<<< HEAD
-        FXMLLoader messageLoad= new FXMLLoader(getClass().getResource("/view/EndScreenController.fxml"));
-        EndScreenController endScreenController = new EndScreenController(retired);
-        messageLoad.setController(endScreenController);
+        FXMLLoader endScreenLoad = new FXMLLoader(getClass().getResource("/view/EndScreenController.fxml"));
+        EndScreenController endScreenController=new EndScreenController(retired);
+        endScreenLoad.setController(endScreenController);
+
+        try {
+            stage.setScene(new Scene(endScreenLoad.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+    }
+
+    public Player actionChoice(Player p1, Player p2,String name)
+
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        FXMLLoader messageLoad= new FXMLLoader(getClass().getResource("/view/ActionChoice.fxml"));
+        ActionChoiceController actionChoiceController = new ActionChoiceController(p1, p2, name);
+        messageLoad.setController(actionChoiceController);
 
         try {
             stage.setScene(new Scene(messageLoad.load()));
         } catch (Exception e) {
             e.printStackTrace();
         }
-=======
-        FXMLLoader acLoad= new FXMLLoader(getClass().getResource("/view/ActionChoice.fxml"));
-        ActionChoiceController actionChoiceController=new ActionChoiceController(p1, p2, name);
-        acLoad.setController(actionChoiceController);
-
-        try {
-            stage.setScene(new Scene(acLoad.load()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         stage.showAndWait();
         return actionChoiceController.getChosen();
-
->>>>>>> 9a6935b3459127c74109c8d3f19e5f32e0d65849
     }
 }
