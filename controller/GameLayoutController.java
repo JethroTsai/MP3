@@ -26,7 +26,7 @@ public class GameLayoutController {
     private Canvas board;
 
     @FXML
-    private Button spin , pay;
+    private Button spin;
 
     private GameResource gameResource;
     private boolean ended = false;
@@ -66,16 +66,9 @@ public class GameLayoutController {
      * @param ae action event
      */
     public void updateScreenStats(ActionEvent ae) {
-        pay.setDisable(true);
         if(ended) {
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
-            // FXMLLOADER to the end game
-//            stage.setScene();
         } else {
-            if(gameResource.getCurrentPlayer().getLoans() != 0)
-            {
-                pay.setDisable(false);
-            }
 
             if (gameResource.getCurrentPlayer().getCareer() != null)careerLabel.setText("Career: " + gameResource.getCurrentPlayer().getCareer().getName());
             if (gameResource.getCurrentPlayer().getSalary() != null)salaryLabel.setText("Salary: " + gameResource.getCurrentPlayer().getSalary().getAmount());
@@ -215,6 +208,7 @@ public class GameLayoutController {
     @FXML
     public void onClickSpin(ActionEvent ae) throws IOException {
         if(spin.getText().equals("End Game")) {
+            gameResource.sortRetired();
             // output
             // @TODO GAME WINNER STAGE/WINDOW/SCREEN
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
