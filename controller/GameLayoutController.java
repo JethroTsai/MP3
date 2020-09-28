@@ -3,7 +3,9 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -13,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.*;
 
+import java.io.IOException;
 import java.util.*;
 
 public class GameLayoutController {
@@ -178,7 +181,16 @@ public class GameLayoutController {
     }
 
     @FXML
-    public void onClickSpin(ActionEvent ae) {
+    public void onClickSpin(ActionEvent ae) throws IOException {
+        if(spin.getText().equals("End Game")) {
+            // output
+
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Menu.fxml"))));
+            stage.setMaximized(false);
+            return;
+        }
+
         Random rand = new Random();
         Player currPlayer = gameResource.getCurrentPlayer();
         int i = rand.nextInt(10) + 1; // dice
@@ -211,24 +223,28 @@ public class GameLayoutController {
         }
 
         handleSpace(currPlayer.getPath().getSpace(currPlayer.getSpace()));
-        if (currPlayer.getName().equals(gameResource.getCurrentPlayer().getName()))
-        {
-            // if player is stuck at the end of the path, add that path to the next
-            if(currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1) {
-                if(currPlayer.getPath().getPath2() == null) {
-                    currPlayer.setPath(currPlayer.getPath().getPath1());
+        if(gameResource.getPlayers().size() != 0) {
+            if (currPlayer.getName().equals(gameResource.getCurrentPlayer().getName()))
+            {
+                // if player is stuck at the end of the path, add that path to the next
+                if(currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1) {
+                    if(currPlayer.getPath().getPath2() == null) {
+                        currPlayer.setPath(currPlayer.getPath().getPath1());
+                    }
                 }
+                currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
+                gameResource.incrementPlayerIndex();
             }
-            currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
-            gameResource.incrementPlayerIndex();
-        }
-        else
-        {
-            currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
-            gameResource.incrementPlayerIndex();
-        }
+            else
+            {
+                currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
+                gameResource.incrementPlayerIndex();
+            }
 
-        drawBoard();
+            drawBoard();
+        } else {
+            spin.setText("End Game");
+        }
     }
 
     public void handleSpace(Space space) {
@@ -265,10 +281,8 @@ public class GameLayoutController {
                     play.payPlayer(amount,currPlayer);
 
                 }
-
                 else
                 {
-
                     gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
                     new WindowCaller().actionCard(gameResource.getActions().getTopCard());
                 }
@@ -295,30 +309,35 @@ public class GameLayoutController {
                     gameResource.getBlues().execute(currPlayer, blue);
             }
             else {
-                if (gameResource.getOtherPlayer().get(0).getCareer() != null)
-                {
-                    if (gameResource.getOtherPlayer().get(1).getCareer() != null)
+                if(gameResource.getOtherPlayer().size() > 0) {
+                    if (gameResource.getOtherPlayer().get(0).getCareer() != null)
                     {
-                        if (gameResource.getOtherPlayer().get(0).getCareer().equals(blue.getJob()))
-                            gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0), blue);
-                        else if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
+                        if (gameResource.getOtherPlayer().get(1).getCareer() != null)
+                        {
+                            if (gameResource.getOtherPlayer().get(0).getCareer().equals(blue.getJob()))
+                                gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(0), blue);
+                            else if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
+                                gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1), blue);
+                            else
+                                gameResource.getBlues().execute(currPlayer, blue);
+                        }
+                    }
+                    else if (gameResource.getOtherPlayer().get(1).getCareer() != null)
+                    {
+                        if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
                             gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1), blue);
                         else
                             gameResource.getBlues().execute(currPlayer, blue);
                     }
-                }
-                else if (gameResource.getOtherPlayer().get(1).getCareer() != null)
-                {
-                    if (gameResource.getOtherPlayer().get(1).getCareer().equals(blue.getJob()))
-                        gameResource.getBlues().execute(currPlayer, gameResource.getOtherPlayer().get(1), blue);
                     else
+                    {
                         gameResource.getBlues().execute(currPlayer, blue);
+                    }
                 }
                 else
                 {
                     gameResource.getBlues().execute(currPlayer, blue);
                 }
-
             }
             gameResource.getBlues().addCard(blue);
         } else if (space.getColor().equals("Green")) //green space
