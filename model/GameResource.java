@@ -162,7 +162,7 @@ public class GameResource
         String color = new String();
         String name = new String();
 
-        path.addSpace(new MagentaSpace("Get Married"));
+
         for (int i = 1; i < 15; i++)
         {
             Random rand = new Random();
@@ -182,6 +182,7 @@ public class GameResource
                 path.addSpace(new Space(color));
             }
         }
+        path.addSpace(new MagentaSpace("Get Married"));
 
         return path;
     }
@@ -193,7 +194,7 @@ public class GameResource
         String name = new String();
         int num;
 
-        path.addSpace(new MagentaSpace("Job Search"));
+
         for (int i = 1; i < 15; i++)
         {
             Random rand = new Random();
@@ -209,7 +210,7 @@ public class GameResource
                 path.addSpace(new Space(color));
             }
         }
-
+        path.addSpace(new MagentaSpace("Job Search"));
         return path;
     }
 

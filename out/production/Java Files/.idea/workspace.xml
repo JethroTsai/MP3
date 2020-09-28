@@ -25,7 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37b8daed-514e-48ba-a62f-68d1759003b9" name="Default Changelist" comment="" />
+    <list default="true" id="37b8daed-514e-48ba-a62f-68d1759003b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controller/JobSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/WindowCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/WindowCaller.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -62,6 +65,17 @@
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="Java Files" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,7 +116,7 @@
       <workItem from="1601262075053" duration="1640000" />
       <workItem from="1601263781266" duration="127000" />
       <workItem from="1601263921008" duration="84000" />
-      <workItem from="1601264129558" duration="544000" />
+      <workItem from="1601264129558" duration="2658000" />
     </task>
     <servers />
   </component>
@@ -142,22 +156,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="865" y="373" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600924889949" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1601264532657">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1601265836465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601264532657" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1601264532657">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
+    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1601265836465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601264532657" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1601264532657">
+    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
+    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1601265836465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601264532657" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1601264532657">
+    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1601265836465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601264532657" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
     <state x="540" y="263" key="IDE.errors.dialog" timestamp="1600936413274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

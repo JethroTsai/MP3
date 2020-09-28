@@ -274,4 +274,54 @@ public class WindowCaller {
         stage.showAndWait();
         return actionChoiceController.getChosen();
     }
+
+
+    public void jobSearch(GameResource gameResource,Player player )
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        Career career1, career2;
+        Salary salary1, salary2;
+        career1 = player.getCareer();
+        career2 = gameResource.getCareers().getTopCard(player.hasDegree());
+        salary1 = player.getSalary();
+        salary2 = gameResource.getSalaries().getTopCard();
+
+        FXMLLoader jobSearchloader= new FXMLLoader(getClass().getResource("/view/Job Choice.fxml"));
+        JobSearchController jobSearchController=new JobSearchController(career1,career2,salary1,salary2);
+        jobSearchloader.setController(jobSearchController);
+
+        try {
+            stage.setScene(new Scene(jobSearchloader.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        stage.showAndWait();
+
+        player.setCareer(jobSearchController.getChosenCareer());
+        player.setSalary(jobSearchController.getChosenSalary());
+
+        if (jobSearchController.getChosenCareer().equals(career1))
+        {
+            gameResource.getCareers().getListCareers().add(career2);
+            player.resetRaises();
+        }
+        else
+        {
+            gameResource.getCareers().getListCareers().add(career1);
+        }
+        if (jobSearchController.getChosenSalary().equals(salary1))
+        {
+            gameResource.getSalaries().getListSalary().add(salary2);
+            player.resetRaises();
+        }
+        else
+        {
+            gameResource.getSalaries().getListSalary().add(salary1);
+        }
+
+
+    }
 }

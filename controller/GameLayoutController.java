@@ -330,7 +330,7 @@ public class GameLayoutController {
                     new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
 
                 } else if (spaceName.equals("Job Search")) {
-//                new WindowCaller().askPlayerToKeepCareer(currPlayer, gameResource.getCareers().getCareers()[0]);
+                new WindowCaller().jobSearch( gameResource,currPlayer);
                 } else if (spaceName.equals("Buy a House")) {
 
                     if(currPlayer.getHouse()!=null)
