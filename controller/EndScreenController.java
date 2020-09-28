@@ -2,13 +2,16 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.GameResource;
 import model.Player;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -16,9 +19,14 @@ import java.util.ResourceBundle;
 public class EndScreenController implements Initializable {
 
     @FXML
-    Label nameLabel, balanceLabel, careerLabel, statusLabel, retirementPlaceLabel;
+    Label nameLabel, balanceLabel, statusLabel;
 
-    String name, career;
+//    @FXML
+//    Label careerLabel;
+
+    String name;
+//    String career;
+
     int balance;
     boolean status;
 
@@ -26,18 +34,17 @@ public class EndScreenController implements Initializable {
     {
         Player player = retired.remove(0);
         this.name = player.getName();
-        this.career = player.getCareer().getName();
+//        this.career = player.getCareer().getName();
         this.balance = player.getBalance();
         this.status = player.isMarried();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         nameLabel.setText("Player Name: " + name);
         balanceLabel.setText("Balance: " + balance);
-        careerLabel.setText("Career: " + career);
+//        careerLabel.setText("Career: " + career);
         if (status)
         {
             statusLabel.setText("Status: Married");
@@ -49,8 +56,9 @@ public class EndScreenController implements Initializable {
     }
 
 
-    public void onClickContinue(ActionEvent ae)
+    public void onClickContinue(ActionEvent ae) throws IOException
     {
-        ((Stage) ((Node) ae.getSource()).getScene().getWindow()).close();
+        Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Menu.fxml"))));
     }
 }

@@ -329,13 +329,9 @@ public class GameResource
     {
         Player winner;
 
-        winner = retired.get(0);
+        retired.sort((p1, p2) -> p2.getBalance() - p1.getBalance());
 
-        for(Player player: retired)
-        {
-            if(player.getBalance() > winner.getBalance())
-                winner=player;
-        }
+        winner = retired.get(0);
 
         retired.add(0,winner);
     }
