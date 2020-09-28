@@ -116,7 +116,7 @@ public class WindowCaller {
     public void careerCard(Career career,Player player)
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
 
 
@@ -139,7 +139,7 @@ public class WindowCaller {
     public void salaryCard(Salary salary,Player player)
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
 
 
@@ -162,7 +162,7 @@ public class WindowCaller {
     public void actionCard(Action act)
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
 
         FXMLLoader actionCardLoader= new FXMLLoader(getClass().getResource("/view/ActionCard.fxml"));
@@ -183,7 +183,7 @@ public class WindowCaller {
     public void bluecard(BlueCard blueCard)
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader blueCardLoader= new FXMLLoader(getClass().getResource("/view/BlueCard.fxml"));
         BlueCardController blueCardController= new BlueCardController(blueCard);
@@ -203,7 +203,7 @@ public class WindowCaller {
     public void greenSpace(String name)
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader greenSpaceLoader= new FXMLLoader(getClass().getResource("/view/GreenSpace.fxml"));
         GreenSpaceController greenSpaceController= new GreenSpaceController(name);
@@ -258,7 +258,7 @@ public class WindowCaller {
 
     {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UTILITY);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
 
         FXMLLoader messageLoad= new FXMLLoader(getClass().getResource("/view/ActionChoice.fxml"));
