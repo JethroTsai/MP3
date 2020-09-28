@@ -216,8 +216,6 @@ public class GameLayoutController {
         if(currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1) {
             if(currPlayer.getPath().getPath2() == null) {
                 currPlayer.setPath(currPlayer.getPath().getPath1());
-            } else {
-
             }
         }
         currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
@@ -325,6 +323,7 @@ public class GameLayoutController {
                 spaceName = ((MagentaSpace) space).getName();
                 System.out.println(spaceName);
                 if (spaceName.equals("Graduation")) {
+                    new WindowCaller().messageBox("Congratulations!!! You have graduated.");
                     currPlayer.graduate();
                 } else if (spaceName.equals("College Career Choice")) {
                     new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
@@ -358,6 +357,7 @@ public class GameLayoutController {
                     currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
                 } else if (spaceName.equals("Have Baby or Twins")) {
                     if ((rand.nextInt(10) + 1) % 2 == 0) {
+                        new WindowCaller().messageBox("Congratulations!!! You have Twins.");
                         currPlayer.addChild();
                         currPlayer.addChild();
                        for(Player player: gameResource.getOtherPlayer())
@@ -366,6 +366,7 @@ public class GameLayoutController {
                        }
 
                     } else {
+                        new WindowCaller().messageBox("Congratulations!!! You had a Baby.");
                         currPlayer.addChild();
                         for(Player player: gameResource.getOtherPlayer())
                         {
