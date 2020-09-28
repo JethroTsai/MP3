@@ -82,8 +82,13 @@ public class Player
 
     public void sellHouse()
     {
-        this.balance += this.getHouse().getWorth();
-        this.house = null;
+        if(house!=null)
+        {
+            this.balance += this.getHouse().getWorth();
+            this.house = null;
+
+        }
+
     }
 
     public void marry()

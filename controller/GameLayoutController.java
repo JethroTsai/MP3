@@ -247,7 +247,7 @@ public class GameLayoutController {
             }
 
 
-           else
+           else if(gameResource.getOtherPlayer().size() == 2)
             {
                 if(gameResource.getActions().showTop().getName().equalsIgnoreCase("Lawsuit"))
                 {
@@ -273,6 +273,11 @@ public class GameLayoutController {
                     new WindowCaller().actionCard(gameResource.getActions().getTopCard());
                 }
 
+            }
+
+           else
+            {
+                new WindowCaller().messageBox("you are the only player left retire");
             }
 
         } else if (space.getColor().equals("Blue")) //blue space
@@ -365,6 +370,7 @@ public class GameLayoutController {
             } else if (spaceName.equals("Which Path")) {
                 currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
             } else if (spaceName.equals("Have Baby or Twins")) {
+
                 if ((rand.nextInt(10) + 1) % 2 == 0) {
                     new WindowCaller().messageBox("Congratulations!!! You have Twins.");
                     currPlayer.addChild();

@@ -26,8 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37b8daed-514e-48ba-a62f-68d1759003b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/JobSearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/WindowCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/WindowCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/GameLayoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GameLayoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/GameResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/GameResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Files/controller/GameLayoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Files/controller/GameLayoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java Files/model/GameResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java Files/model/GameResource.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,17 +71,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
@@ -116,7 +107,7 @@
       <workItem from="1601262075053" duration="1640000" />
       <workItem from="1601263781266" duration="127000" />
       <workItem from="1601263921008" duration="84000" />
-      <workItem from="1601264129558" duration="2658000" />
+      <workItem from="1601264129558" duration="6581000" />
     </task>
     <servers />
   </component>
@@ -156,22 +147,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="865" y="373" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600924889949" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1601265836465">
+    <state width="1877" height="154" key="GridCell.Tab.0.bottom" timestamp="1601270715106">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1601265836465">
+    <state width="1877" height="154" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601270715106" />
+    <state width="1877" height="154" key="GridCell.Tab.0.center" timestamp="1601270715105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1601265836465">
+    <state width="1877" height="154" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601270715105" />
+    <state width="1877" height="154" key="GridCell.Tab.0.left" timestamp="1601270715105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1601265836465">
+    <state width="1877" height="154" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601270715105" />
+    <state width="1877" height="154" key="GridCell.Tab.0.right" timestamp="1601270715106">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601265836465" />
+    <state width="1877" height="154" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601270715106" />
     <state x="540" y="263" key="IDE.errors.dialog" timestamp="1600936413274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
