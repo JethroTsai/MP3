@@ -216,8 +216,6 @@ public class GameLayoutController {
         if(currPlayer.getPath().getNSpaces() == currPlayer.getSpace() + 1) {
             if(currPlayer.getPath().getPath2() == null) {
                 currPlayer.setPath(currPlayer.getPath().getPath1());
-            } else {
-
             }
         }
         currPlayer.getPath().getSpace(currPlayer.getSpace()).addPlayer(currPlayer);
