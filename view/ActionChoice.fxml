@@ -4,18 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="306.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="262.0" layoutY="14.0" text="Action Card">
-         <font>
-            <Font size="22.0" />
-         </font></Label>
-      <Label fx:id="nameLabel" layoutX="289.0" layoutY="120.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboBox" layoutX="235.0" layoutY="243.0" prefWidth="150.0" promptText="choose player" />
-      <Button fx:id="cont" layoutX="284.0" layoutY="333.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
+      <ComboBox fx:id="comboBox" layoutX="78.0" layoutY="297.0" prefWidth="150.0" promptText="choose player" />
+      <Button fx:id="cont" layoutX="118.0" layoutY="346.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
+      <Pane layoutX="24.0" layoutY="14.0" prefHeight="243.0" prefWidth="252.0">
+         <children>
+            <Label layoutX="33.0" layoutY="21.0" text="Action Card">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="108.0" prefHeight="27.0" prefWidth="203.0" text="Label" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
    </children>
 </AnchorPane>
