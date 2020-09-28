@@ -323,4 +323,19 @@ public class GameResource
         p.retire(getRetired().size() + 1);
         numberOfPlayers--;
     }
+
+    public void sortRetired()
+    {
+        Player winner;
+
+        winner = retired.get(0);
+
+        for(Player player: retired)
+        {
+            if(player.getBalance() > winner.getBalance())
+                winner=player;
+        }
+
+        retired.add(0,winner);
+    }
 }
