@@ -233,4 +233,24 @@ public class WindowCaller {
 
         stage.showAndWait();
     }
+
+    public Player actionChoice(Player p1, Player p2,String name)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader acLoad= new FXMLLoader(getClass().getResource("/view/ActionChoice.fxml"));
+        ActionChoiceController actionChoiceController=new ActionChoiceController(p1, p2, name);
+        acLoad.setController(actionChoiceController);
+
+        try {
+            stage.setScene(new Scene(acLoad.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        stage.showAndWait();
+        return actionChoiceController.getChosen();
+
+    }
 }
