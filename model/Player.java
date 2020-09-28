@@ -195,6 +195,12 @@ public class Player
         this.child++;
     }
 
+    public void sellChild()
+    {
+        this.balance += (child * 10000);
+        this.child = 0;
+    }
+
     public void addSpace()
     {
         this.space += 1;

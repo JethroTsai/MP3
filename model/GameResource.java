@@ -25,6 +25,7 @@ public class GameResource
     {
         this.numberOfPlayers = numberOfPlayers;
         players = new ArrayList<>();
+        retired = new ArrayList<>();
 
         generatePlayers();
         actions = generateActionCard();
@@ -252,7 +253,9 @@ public class GameResource
     }
 
     public void incrementPlayerIndex() {
-        playerIndex++;
+        if(playerIndex != getNumberOfPlayers()) {
+            playerIndex++;
+        }
         if(playerIndex == getNumberOfPlayers()) {
             playerIndex = 0;
         }
@@ -313,5 +316,11 @@ public class GameResource
 
     public ArrayList<Player> getRetired() {
         return retired;
+    }
+
+    public void retirePlayer(Player p)
+    {
+        p.retire(getRetired().size() + 1);
+        numberOfPlayers--;
     }
 }
