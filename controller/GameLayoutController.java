@@ -169,6 +169,7 @@ public class GameLayoutController {
     }
 
     private void drawSpace(Space space, int x, int y, GraphicsContext gc) {
+        int i = 0;
         if(space.getColor().equals("Orange")) gc.setFill(Color.ORANGE);
         else if(space.getColor().equals("Blue")) gc.setFill(Color.BLUE);
         else if(space.getColor().equals("Magenta")) gc.setFill(Color.MAGENTA);
@@ -176,7 +177,8 @@ public class GameLayoutController {
         gc.fillRect(x, y,50, 50);
         gc.strokeRect(x, y, 50, 50);
         for(Player player : space.getPlayers()) {
-            gc.drawImage(new Image("/Pics/player.png",25,25,true,false), x , y );
+            gc.drawImage(new Image("/Pics/player.png",25,25,true,false), x + i , y +i);
+            i+=10;
         }
     }
 
