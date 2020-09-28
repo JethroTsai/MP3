@@ -189,8 +189,13 @@ public class GameLayoutController {
         if(spin.getText().equals("End Game")) {
             // output
             // @TODO GAME WINNER STAGE/WINDOW/SCREEN
-
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            FXMLLoader endgame= new FXMLLoader(getClass().getResource("/view/EndScreen.fxml"));
+            endgame.setController(new EndScreenController(gameResource.getRetired()));
+            stage.setScene(new Scene(endgame.load()));
+
+
+
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Menu.fxml"))));
             stage.setMaximized(false);
             return;
