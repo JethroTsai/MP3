@@ -239,8 +239,33 @@ public class GameLayoutController {
                 }
 
 
-                else
-                    gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
+               else
+                {
+                    if(gameResource.getActions().showTop().getName().equalsIgnoreCase("Lawsuit"))
+                    {
+                        System.out.println("hi");
+                        currPlayer.payPlayer(gameResource.generateActionCard().getTopCard().getAmount(),new WindowCaller().actionChoice(gameResource.getOtherPlayer().get(0),gameResource.getOtherPlayer().get(1),"Lawsuit"));
+                    }
+
+                    else if(gameResource.getActions().showTop().getName().equalsIgnoreCase("File a Lawsuit"))
+                    {
+                        System.out.println("hi");
+                        int amount=gameResource.getActions().getTopCard().getAmount();
+                        Player play=new WindowCaller().actionChoice(gameResource.getOtherPlayer().get(0),gameResource.getOtherPlayer().get(1),"File a Lawsuit " + amount);
+
+                        play.payPlayer(amount,currPlayer);
+
+                    }
+
+                    else
+                    {
+
+                        gameResource.getActions().execute(currPlayer, gameResource.getOtherPlayer().get(0), gameResource.getOtherPlayer().get(1));
+                        new WindowCaller().actionCard(gameResource.getActions().getTopCard());
+                    }
+
+                }
+
             } else if (space.getColor().equals("Blue")) //blue space
             {
                 BlueCard blue = gameResource.getBlues().getTopCard();

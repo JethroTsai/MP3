@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="331.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ComboBox layoutX="94.0" layoutY="307.0" prefWidth="150.0" promptText="Choose Player" />
-      <Button layoutX="133.0" layoutY="350.0" mnemonicParsing="false" text="Continue" />
+      <ComboBox fx:id="comboBox" layoutX="94.0" layoutY="307.0" prefWidth="150.0" promptText="Choose Player" />
+      <Button fx:id="cont" layoutX="133.0" layoutY="350.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
       <Pane layoutX="24.0" layoutY="14.0" prefHeight="271.0" prefWidth="283.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="23.0" prefHeight="53.0" prefWidth="191.0" text="Action Card" textAlignment="CENTER">
@@ -15,7 +15,11 @@
                   <Font size="36.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label alignment="CENTER" layoutX="-3.0" layoutY="126.0" prefHeight="27.0" prefWidth="283.0" text="Name" textAlignment="CENTER">
+=======
+            <Label fx:id="nameLabel" alignment="CENTER" layoutX="43.0" layoutY="126.0" prefHeight="27.0" prefWidth="206.0" text="Name" textAlignment="CENTER">
+>>>>>>> 9a6935b3459127c74109c8d3f19e5f32e0d65849
                <font>
                   <Font size="18.0" />
                </font>
