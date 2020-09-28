@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
 
+import java.util.ArrayList;
+
 public class WindowCaller {
     public void collegeCareerChoice(GameResource gameResource, Player player) {
         Stage stage = new Stage();
@@ -232,5 +234,21 @@ public class WindowCaller {
         }
 
         stage.showAndWait();
+    }
+
+    public void EndScreen(ArrayList<Player> retired)
+    {
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader messageLoad= new FXMLLoader(getClass().getResource("/view/EndScreenController.fxml"));
+        EndScreenController endScreenController = new EndScreenController(retired);
+        messageLoad.setController(endScreenController);
+
+        try {
+            stage.setScene(new Scene(messageLoad.load()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

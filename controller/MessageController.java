@@ -15,18 +15,18 @@ public class MessageController implements Initializable {
     @FXML
     Label nameLabel;
 
-    String name;
+    String text;
 
-    public MessageController(String name)
+    public MessageController(String text)
     {
-        this.name=name;
+        this.text=text;
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-       nameLabel.setText(name);
+       nameLabel.setText(text);
     }
 
 

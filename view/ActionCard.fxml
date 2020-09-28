@@ -9,7 +9,7 @@
       <Button layoutX="118.0" layoutY="322.0" mnemonicParsing="false" onAction="#onClickContinue" text="Continue" />
       <Pane layoutX="26.0" layoutY="18.0" prefHeight="278.0" prefWidth="248.0">
          <children>
-            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="122.0" prefHeight="27.0" prefWidth="203.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="122.0" prefHeight="27.0" prefWidth="258.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font></Label>

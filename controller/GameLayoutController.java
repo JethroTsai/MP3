@@ -17,7 +17,7 @@ import java.util.*;
 
 public class GameLayoutController {
     @FXML
-    private Label careerLabel, salaryLabel, pathLabel, moneyLabel, loanLabel, playerLabel;
+    private Label careerLabel, salaryLabel, pathLabel, moneyLabel, loanLabel, playerLabel, statusLabel;
 
     @FXML
     private Canvas board;
@@ -70,6 +70,13 @@ public class GameLayoutController {
             moneyLabel.setText("Balance: " + gameResource.getCurrentPlayer().getBalance());
             loanLabel.setText("Loans: " + gameResource.getCurrentPlayer().getLoans());
             playerLabel.setText("Player: " + gameResource.getCurrentPlayer().getName());
+            if (gameResource.getCurrentPlayer().isMarried()) {
+                statusLabel.setText("Status: Married");
+            }
+            else
+            {
+                statusLabel.setText("Status: Single");
+            }
 
             if (gameResource.getCurrentPlayer().isRetired())
             {
@@ -294,8 +301,6 @@ public class GameLayoutController {
                 if (spaceName.equals("Graduation")) {
                     currPlayer.graduate();
                 } else if (spaceName.equals("College Career Choice")) {
-
-//                gameResource.getCareers().getCareers()[0] -> gameResource.getCareer().getTopCard();
                     new WindowCaller().collegeCareerChoice(gameResource, currPlayer);
 
                 } else if (spaceName.equals("Job Search")) {
@@ -314,9 +319,15 @@ public class GameLayoutController {
 
                 }
                 else if (spaceName.equals("Get Married")) {
-
-                    currPlayer.marry();
-                    System.out.println(currPlayer.isMarried());
+                    if (!currPlayer.isMarried())
+                    {
+                        new WindowCaller().messageBox("Congratulations!!! You are now married.");
+                        currPlayer.marry();
+                    }
+                    else
+                    {
+                        new WindowCaller().messageBox("You are already married! You cannot marry more than once.");
+                    }
                 } else if (spaceName.equals("Which Path")) {
                     currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
                 } else if (spaceName.equals("Have Baby or Twins")) {
@@ -328,13 +339,11 @@ public class GameLayoutController {
                            player.payPlayer(10000,currPlayer);
                        }
 
-                       System.out.println("Stonks");
                     } else {
                         currPlayer.addChild();
                         for(Player player: gameResource.getOtherPlayer())
                         {
                             player.payPlayer(5000,currPlayer);
-                            System.out.println("Stonks");
                         }
                     }
                 }
@@ -367,11 +376,6 @@ public class GameLayoutController {
 //                    currPlayer.retire();
 //                    retiredPlayers.add(currPlayer);
                 }
-                //else //Which Path
-                //{
-                //    currPlayer.setPath(new WindowCaller().choosePath(currPlayer.getPath().getPath1(), currPlayer.getPath().getPath2()));
-                //    currPlayer.resetSpace();
-                //}
             }
         }
 

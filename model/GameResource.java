@@ -117,7 +117,7 @@ public class GameResource
             color = COLORS[rand.nextInt(2)];
             if (color.equals("Green"))
             {
-                name = GREEN_NAME[rand.nextInt(1)];
+                name = GREEN_NAME[rand.nextInt(2)];
                 path.addSpace(new GreenSpace(name));
             }
             else
@@ -143,7 +143,7 @@ public class GameResource
             color = COLORS[rand.nextInt(3)];
             if (color.equals("Green"))
             {
-                name = GREEN_NAME[rand.nextInt(1)];
+                name = GREEN_NAME[rand.nextInt(2)];
                 path.addSpace(new GreenSpace(name));
             }
             else
@@ -200,7 +200,7 @@ public class GameResource
             num = rand.nextInt(5);
             if (num >= 2)
             {
-                name = GREEN_NAME[rand.nextInt(1)];
+                name = GREEN_NAME[rand.nextInt(2)];
                 path.addSpace(new GreenSpace(name));
             }
             else
@@ -225,7 +225,7 @@ public class GameResource
             color = COLORS[rand.nextInt(3)];
             if (color.equals("Green"))
             {
-                name = GREEN_NAME[rand.nextInt(2)];
+                name = GREEN_NAME[rand.nextInt(1)];
                 path.addSpace(new GreenSpace(name));
             }
             else
@@ -240,7 +240,7 @@ public class GameResource
 
     public void generatePlayers()
     {
-        for(int i = 0; i < numberOfPlayers; i++) {
+        for(int i = 1; i <= numberOfPlayers; i++) {
             players.add(new Player("P" + i));
         }
     }
